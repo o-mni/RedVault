@@ -28,7 +28,7 @@ body {
     cursor: pointer;
     transition: background 0.3s;
     width: 100%;
-    text-align: middle;
+    text-align: left;
     border-radius: 12px;
 }
 
@@ -107,7 +107,6 @@ a:hover {
 .sidebar-logo {
     width: 100%;
     max-width: 120px;
-    /* Optional: keep it nicely sized */
     margin: 0 auto 20px auto;
     display: block;
     padding-top: 1px;
