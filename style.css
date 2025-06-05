@@ -112,3 +112,8 @@ a:hover {
     display: block;
     padding-top: 1px;
 }
+
+.sidebar-btn.active {
+    background-color: #f73d3dba;
+    color: white;
+}

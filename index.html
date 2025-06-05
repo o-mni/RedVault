@@ -12,17 +12,27 @@
         <aside class="sidebar">
             <img src="vault.png" alt="Vault Logo" class="sidebar-logo">
 
-            <button onclick="showPage('home')">Home</button>
-            <button onclick="showPage('about')">About</button>
+            <button class="sidebar-btn" onclick="showPage('home', this)">Home</button>
+            <button class="sidebar-btn" onclick="showPage('about', this)">About</button>
         </aside>
 
         <main class="content">
+
             <section id="home" class="page">
                 <div class="box">
                     <h2>Welcome to Home</h2>
                     <p>This is the home page. 2 <a href="https://example.com" target="_blank">Visit Example</a></p>
-                    <button onclick="copyToClipboard('git clone https://github.com/user/repo.git')">Copy Git
-                        Command</button>
+
+                    <div class="code-snippet">
+                        <code id="cmd-git">git clone https://github.com/user/repo.git</code>
+                        <button class="copy-icon" onclick="copyCommand('cmd-git')" aria-label="Copy to clipboard">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </section>
 
@@ -32,8 +42,8 @@
                     <p>This is a simple static site hosted on GitHub Pages.</p>
 
                     <div class="code-snippet">
-                        <code id="cmd-user">sherlock user123</code>
-                        <button class="copy-icon" onclick="copyCommand('cmd-user')" aria-label="Copy to clipboard">
+                        <code id="cmd-sher">sherlock user123</code>
+                        <button class="copy-icon" onclick="copyCommand('cmd-sher')" aria-label="Copy to clipboard">
                             <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
                                 fill="currentColor">
                                 <path
