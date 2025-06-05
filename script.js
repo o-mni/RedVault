@@ -10,3 +10,10 @@ function copyToClipboard(text) {
         alert("Copied to clipboard!");
     });
 }
+
+function copyCommand(elementId) {
+    const text = document.getElementById(elementId).innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        alert("Command copied!");
+    });
+}
