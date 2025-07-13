@@ -54,26 +54,25 @@ function copyCommand(codeId, button) {
 
 // script.js
 
-const menuToggle = document.getElementById('menu-toggle');
-const sidebar = document.querySelector('.sidebar');
-const links = sidebar.querySelectorAll('.sidebar-btn, .sidebar-supp');
+const toggleBtn = document.getElementById('menu-toggle');
+const bodyEl = document.body;
+const overlay = document.querySelector('.overlay');
 
-// 1) Open/close menu when hamburger is clicked
-menuToggle.addEventListener('click', e => {
-    e.stopPropagation();       // don’t immediately re-close
-    sidebar.classList.toggle('open');
+// 1) Toggle menu-open on button click
+toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    bodyEl.classList.toggle('menu-open');
 });
 
-// 2) Close when the user clicks anywhere else
-document.addEventListener('click', e => {
-    if (!sidebar.contains(e.target)) {
-        sidebar.classList.remove('open');
+// 2) Clicking the overlay also closes it
+overlay.addEventListener('click', () => {
+    bodyEl.classList.remove('menu-open');
+});
+
+// 3) Clicking anywhere outside the sidebar closes it, too
+document.addEventListener('click', (e) => {
+    if (!document.querySelector('.sidebar').contains(e.target)
+        && e.target !== toggleBtn) {
+        bodyEl.classList.remove('menu-open');
     }
-});
-
-// 3) Close menu when a link is chosen
-links.forEach(link => {
-    link.addEventListener('click', () => {
-        sidebar.classList.remove('open');
-    });
 });
