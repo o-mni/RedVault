@@ -127,3 +127,63 @@ a:hover {
     transition: color 0.3s;
     margin-top: auto;
 }
+
+/* ===== Tablet & small desktops (up to 768px) ===== */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 0.5em;
+    }
+
+    .sidebar-logo,
+    .sidebar-supp {
+        display: none;
+        /* hide logo & support link to save vertical space */
+    }
+
+    .sidebar-btn {
+        flex: 1 0 auto;
+        margin: 0 0.25em;
+        padding: 0.5em;
+        font-size: 0.9em;
+        text-align: center;
+    }
+
+    .content {
+        padding: 1em;
+    }
+}
+
+/* ===== Phones (up to 480px) ===== */
+@media (max-width: 480px) {
+    .sidebar-btn {
+        padding: 0.4em;
+        font-size: 0.8em;
+    }
+
+    .code-snippet {
+        font-size: 0.9em;
+    }
+}
+
+/* show the toggle only on mobile */
+#menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #ecf3f8;
+    padding: 0.5em;
+}
+
+/* hide sidebar when “collapsed” */
+.sidebar.collapsed {
+    display: none;
+}

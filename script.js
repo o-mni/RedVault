@@ -51,3 +51,9 @@ function copyCommand(codeId, button) {
         }, 1000);
     });
 }
+
+const btn = document.getElementById('menu-toggle');
+const sidebar = document.querySelector('.sidebar');
+btn.addEventListener('click', () => {
+    sidebar.classList.toggle('collapsed');
+});
