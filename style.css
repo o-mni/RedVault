@@ -130,40 +130,59 @@ a:hover {
     margin-top: auto;
 }
 
-/* at the bottom of style.css: */
 @media (max-width: 768px) {
 
-    /* hide all the page-links initially */
-    .sidebar-btn,
-    .sidebar-supp {
-        display: none;
+    /* 1. Make the whole layout vertical */
+    .container {
+        display: flex;
+        flex-direction: column;
     }
 
-    /* when .open is applied to the sidebar, stack them vertically */
-    .sidebar.open .sidebar-btn,
-    .sidebar.open .sidebar-supp {
+    /* 2. Stretch the sidebar full-width and reset its positioning */
+    .sidebar {
+        position: relative;
+        /* so it sits in the flow, not fixed/off-canvas */
+        width: 100%;
+        height: auto;
+        /* let it grow with its contents */
+        transform: none;
+        /* kill any translateX/Y you had */
+        padding: 1rem 0;
+        /* optional spacing top/bottom */
+        background-color: #010409;
+        /* keep your dark bg */
+    }
+
+    /* 3. Stack all buttons vertically, full-width */
+    .sidebar-btn,
+    .sidebar-supp {
         display: block;
+        /* block-level so it fills the width */
         width: 100%;
         margin: 0.5em 0;
-        text-align: left;
+        /* space between items */
         padding: 0.75em 1em;
+        text-align: center;
+        font-size: 1rem;
         background: none;
         border: none;
         color: #ecf3f8;
-        font-size: 1rem;
     }
 
-    .sidebar.open .sidebar-btn:hover,
-    .sidebar.open .sidebar-supp:hover {
+    .sidebar-btn:hover,
+    .sidebar-supp:hover {
         background: #2d3748;
         cursor: pointer;
     }
 
-    /* make sure the hamburger sits at the top-left */
+    /* 4. (Optional) hide the hamburger toggle if you don’t need it */
     #menu-toggle {
-        position: fixed;
-        top: 1rem;
-        left: 1rem;
-        z-index: 1000;
+        display: none;
+    }
+
+    /* 5. Make sure your content sits below the menu */
+    .content {
+        padding-top: 1rem;
+        /* adjust so it doesn’t hide under the menu */
     }
 }
