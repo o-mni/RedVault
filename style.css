@@ -132,17 +132,14 @@ a:hover {
 
 @media (max-width: 768px) {
 
-    /* full-screen overlay */
+    /* full-screen dark backdrop */
     #overlay {
         position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+        inset: 0;
         background: rgba(0, 0, 0, 0.7);
         opacity: 0;
         visibility: hidden;
-        transition: opacity 0.2s ease;
+        transition: opacity 0.2s;
         z-index: 900;
     }
 
@@ -151,23 +148,26 @@ a:hover {
         visibility: visible;
     }
 
-    /* center-modal sidebar */
+    /* center-modal container */
     .sidebar {
         position: fixed;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%) scale(0.8);
         width: 90%;
-        max-width: 300px;
-        background-color: #010409;
+        max-width: 320px;
+        background: #010409;
         border-radius: 12px;
         padding: 2rem 1rem;
         display: flex;
         flex-direction: column;
+        /* STACK VERTICALLY */
         align-items: stretch;
+        /* full-width children */
         gap: 1rem;
+        /* space between buttons */
         opacity: 0;
-        transition: transform 0.2s ease, opacity 0.2s ease;
+        transition: transform 0.2s, opacity 0.2s;
         z-index: 1000;
     }
 
@@ -176,21 +176,26 @@ a:hover {
         opacity: 1;
     }
 
-    /* style the logo and buttons vertically */
+    /* logo centered at top */
     .sidebar-logo {
         display: block;
         margin: 0 auto 1.5rem;
         max-width: 80px;
     }
 
+    /* buttons span full width and stack */
     .sidebar-btn {
-        padding: 0.75rem;
+        display: block;
+        /* ensure block-level */
+        width: 100%;
+        /* fill the modal */
+        padding: 0.75rem 1rem;
         font-size: 1.1rem;
+        border: 1px solid #2d3748;
         border-radius: 6px;
         background: none;
         color: #ecf3f8;
         text-align: center;
-        border: 1px solid #2d3748;
     }
 
     .sidebar-btn.active,
@@ -198,19 +203,19 @@ a:hover {
         background-color: #2d3748;
     }
 
-    /* support link at bottom */
+    /* support link at bottom, centered */
     .sidebar-supp {
         margin-top: 2rem;
+        text-align: center;
         font-size: 0.9rem;
         color: #a0aec0;
-        text-align: center;
     }
 
-    /* always show hamburger in the corner */
+    /* always show hamburger in corner */
     .hamburger {
         position: fixed;
-        top: 1em;
-        left: 1em;
+        top: 1rem;
+        left: 1rem;
         background: none;
         border: none;
         font-size: 1.5rem;
