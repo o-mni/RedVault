@@ -15,14 +15,14 @@
     <!-- 2) Mobile Nav Links (vertical list) -->
     <nav class="mobile-nav">
         <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#cryptography">Cryptography</a></li>
-            <li><a href="#hashing">Hashing</a></li>
-            <li><a href="#forensics">Forensics</a></li>
-            <li><a href="#re">Reverse Engineering</a></li>
-            <li><a href="#we">Web Exploitation</a></li>
-            <li><a href="#others">Others</a></li>
-            <li><a href="mailto:support@redvault.org">Support</a></li>
+            <li><button onclick="showPage('home'); toggleMenu()">Home</button></li>
+            <li><button onclick="showPage('about'); toggleMenu()">Cryptography</button></li>
+            <li><button onclick="showPage('hashing'); toggleMenu()">Hashing</button></li>
+            <li><button onclick="showPage('forensics'); toggleMenu()">Forensics</button></li>
+            <li><button onclick="showPage('re'); toggleMenu()">Reverse Engineering</button></li>
+            <li><button onclick="showPage('we'); toggleMenu()">Web Exploitation</button></li>
+            <li><button onclick="showPage('others'); toggleMenu()">Others</button></li>
+            <li><button onclick="toggleMenu()">Support</button></li>
         </ul>
     </nav>
 

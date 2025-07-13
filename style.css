@@ -130,80 +130,46 @@ a:hover {
     margin-top: auto;
 }
 
-/* ==== Mobile Nav Pattern from the template ==== */
-/* toggle button */
-.mobile-nav-toggle {
-    position: fixed;
-    top: 1rem;
+/* ---- mobile drop-down menu ---- */
+#mobile-menu {
+    list-style: none;
+    margin: 0.5em 0 0;
+    padding: 0;
+    display: none;
+    /* hide by default */
+    position: absolute;
+    /* so it floats below the button */
+    top: 3rem;
+    /* adjust to sit below your button */
     left: 1rem;
-    z-index: 9998;
+    /* align with your button */
+    background: #010409;
+    border: 1px solid #2d3748;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+#mobile-menu.show {
+    display: block;
+    /* when “show” class is added */
+}
+
+#mobile-menu li+li {
+    margin-top: 0.25em;
+}
+
+#mobile-menu button {
     background: none;
     border: none;
-    font-size: 2rem;
     color: #ecf3f8;
+    padding: 0.75em 1em;
+    width: 100%;
+    text-align: left;
+    font-size: 1rem;
     cursor: pointer;
 }
 
-/* the menu itself: full-height, scrollable, vertical list */
-.mobile-nav {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba(1, 4, 9, 0.95);
-    padding-top: 4rem;
-    overflow-y: auto;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.3s, visibility 0.3s;
-    z-index: 9999;
-}
-
-.mobile-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.mobile-nav li+li {
-    margin-top: 1rem;
-}
-
-.mobile-nav a {
-    display: block;
-    padding: 0.75rem 1.5rem;
-    color: #ecf3f8;
-    font-size: 1.2rem;
-    text-align: center;
-    text-decoration: none;
-}
-
-.mobile-nav a:hover,
-.mobile-nav .active>a {
+#mobile-menu button:hover {
     background: #2d3748;
-    color: #12d640;
-}
-
-/* the dark full-screen backdrop */
-.mobile-nav-overly {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.6);
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.3s, visibility 0.3s;
-    z-index: 9997;
-}
-
-/* when open, show both */
-body.mobile-nav-active .mobile-nav,
-body.mobile-nav-active .mobile-nav-overly {
-    visibility: visible;
-    opacity: 1;
-}
-
-/* prevent body scroll when menu is open */
-body.mobile-nav-active {
-    overflow: hidden;
 }

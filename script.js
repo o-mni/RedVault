@@ -68,3 +68,24 @@ overlay.addEventListener('click', () => {
     body.classList.remove('mobile-nav-active');
     toggle.textContent = '☰';
 });
+
+// 1. Toggle the “show” class on the menu
+function toggleMenu() {
+    document.getElementById('mobile-menu').classList.toggle('show');
+}
+
+// 2. Close the menu if you click anywhere outside of it
+document.addEventListener('click', (e) => {
+    const menu = document.getElementById('mobile-menu');
+    const btn = document.getElementById('menu-btn');
+    if (!menu.contains(e.target) && !btn.contains(e.target)) {
+        menu.classList.remove('show');
+    }
+});
+
+// assuming you didn’t already wire it:
+document.getElementById('menu-btn')
+    .addEventListener('click', (e) => {
+        e.stopPropagation();  // prevent the global click-handler from immediately closing it
+        toggleMenu();
+    });
