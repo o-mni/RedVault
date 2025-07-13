@@ -130,59 +130,51 @@ a:hover {
     margin-top: auto;
 }
 
-@media (max-width: 768px) {
+/* --- at the BOTTOM of style.css --- */
+@media screen and (max-width: 768px) {
 
-    /* 1. Make the whole layout vertical */
+    /* 1) Stack the whole layout */
     .container {
         display: flex;
-        flex-direction: column;
+        flex-direction: column !important;
     }
 
-    /* 2. Stretch the sidebar full-width and reset its positioning */
+    /* 2) Make the sidebar full-width and reset any transforms */
     .sidebar {
-        position: relative;
-        /* so it sits in the flow, not fixed/off-canvas */
-        width: 100%;
-        height: auto;
-        /* let it grow with its contents */
-        transform: none;
-        /* kill any translateX/Y you had */
-        padding: 1rem 0;
-        /* optional spacing top/bottom */
-        background-color: #010409;
-        /* keep your dark bg */
+        position: relative !important;
+        width: 100% !important;
+        transform: none !important;
+        padding: 1rem 0 !important;
+        background-color: #010409 !important;
     }
 
-    /* 3. Stack all buttons vertically, full-width */
+    /* 3) Force all your existing buttons into a vertical list */
     .sidebar-btn,
     .sidebar-supp {
-        display: block;
-        /* block-level so it fills the width */
-        width: 100%;
-        margin: 0.5em 0;
-        /* space between items */
-        padding: 0.75em 1em;
-        text-align: center;
-        font-size: 1rem;
-        background: none;
-        border: none;
-        color: #ecf3f8;
+        display: block !important;
+        width: 100% !important;
+        margin: 0.5em 0 !important;
+        padding: 0.75em 1em !important;
+        text-align: center !important;
+        font-size: 1rem !important;
+        background: none !important;
+        border: none !important;
+        color: #ecf3f8 !important;
     }
 
     .sidebar-btn:hover,
     .sidebar-supp:hover {
-        background: #2d3748;
-        cursor: pointer;
+        background: #2d3748 !important;
+        cursor: pointer !important;
     }
 
-    /* 4. (Optional) hide the hamburger toggle if you don’t need it */
+    /* 4) If you don’t want the hamburger on phones, hide it */
     #menu-toggle {
-        display: none;
+        display: none !important;
     }
 
-    /* 5. Make sure your content sits below the menu */
+    /* 5) Push your content below the now-full sidebar */
     .content {
-        padding-top: 1rem;
-        /* adjust so it doesn’t hide under the menu */
+        margin-top: 1rem !important;
     }
 }
