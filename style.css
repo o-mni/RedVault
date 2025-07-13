@@ -130,96 +130,80 @@ a:hover {
     margin-top: auto;
 }
 
-@media (max-width: 768px) {
+/* ==== Mobile Nav Pattern from the template ==== */
+/* toggle button */
+.mobile-nav-toggle {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 9998;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #ecf3f8;
+    cursor: pointer;
+}
 
-    /* full-screen dark backdrop */
-    #overlay {
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.7);
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.2s;
-        z-index: 900;
-    }
+/* the menu itself: full-height, scrollable, vertical list */
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(1, 4, 9, 0.95);
+    padding-top: 4rem;
+    overflow-y: auto;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 9999;
+}
 
-    body.menu-open #overlay {
-        opacity: 1;
-        visibility: visible;
-    }
+.mobile-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
 
-    /* center-modal container */
-    .sidebar {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(0.8);
-        width: 90%;
-        max-width: 320px;
-        background: #010409;
-        border-radius: 12px;
-        padding: 2rem 1rem;
-        display: flex;
-        flex-direction: column;
-        /* STACK VERTICALLY */
-        align-items: stretch;
-        /* full-width children */
-        gap: 1rem;
-        /* space between buttons */
-        opacity: 0;
-        transition: transform 0.2s, opacity 0.2s;
-        z-index: 1000;
-    }
+.mobile-nav li+li {
+    margin-top: 1rem;
+}
 
-    body.menu-open .sidebar {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 1;
-    }
+.mobile-nav a {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: #ecf3f8;
+    font-size: 1.2rem;
+    text-align: center;
+    text-decoration: none;
+}
 
-    /* logo centered at top */
-    .sidebar-logo {
-        display: block;
-        margin: 0 auto 1.5rem;
-        max-width: 80px;
-    }
+.mobile-nav a:hover,
+.mobile-nav .active>a {
+    background: #2d3748;
+    color: #12d640;
+}
 
-    /* buttons span full width and stack */
-    .sidebar-btn {
-        display: block;
-        /* ensure block-level */
-        width: 100%;
-        /* fill the modal */
-        padding: 0.75rem 1rem;
-        font-size: 1.1rem;
-        border: 1px solid #2d3748;
-        border-radius: 6px;
-        background: none;
-        color: #ecf3f8;
-        text-align: center;
-    }
+/* the dark full-screen backdrop */
+.mobile-nav-overly {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 9997;
+}
 
-    .sidebar-btn.active,
-    .sidebar-btn:hover {
-        background-color: #2d3748;
-    }
+/* when open, show both */
+body.mobile-nav-active .mobile-nav,
+body.mobile-nav-active .mobile-nav-overly {
+    visibility: visible;
+    opacity: 1;
+}
 
-    /* support link at bottom, centered */
-    .sidebar-supp {
-        margin-top: 2rem;
-        text-align: center;
-        font-size: 0.9rem;
-        color: #a0aec0;
-    }
-
-    /* always show hamburger in corner */
-    .hamburger {
-        position: fixed;
-        top: 1rem;
-        left: 1rem;
-        background: none;
-        border: none;
-        font-size: 1.5rem;
-        color: #ecf3f8;
-        z-index: 1100;
-    }
+/* prevent body scroll when menu is open */
+body.mobile-nav-active {
+    overflow: hidden;
 }

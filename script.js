@@ -52,8 +52,19 @@ function copyCommand(codeId, button) {
     });
 }
 
-const menuToggle = document.getElementById('menu-toggle');
 const body = document.body;
-menuToggle.addEventListener('click', () => {
-    body.classList.toggle('menu-open');
+const toggle = document.querySelector('.mobile-nav-toggle');
+const overlay = document.querySelector('.mobile-nav-overly');
+
+// flip the menu state
+toggle.addEventListener('click', () => {
+    body.classList.toggle('mobile-nav-active');
+    // swap icon between ☰ and ✕
+    toggle.textContent = body.classList.contains('mobile-nav-active') ? '✕' : '☰';
+});
+
+// clicking the overlay also closes it
+overlay.addEventListener('click', () => {
+    body.classList.remove('mobile-nav-active');
+    toggle.textContent = '☰';
 });

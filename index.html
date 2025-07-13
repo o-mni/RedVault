@@ -9,6 +9,27 @@
 </head>
 
 <body>
+    <!-- 1) Mobile Nav Toggle -->
+    <button type="button" class="mobile-nav-toggle" aria-label="Open menu">☰</button>
+
+    <!-- 2) Mobile Nav Links (vertical list) -->
+    <nav class="mobile-nav">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#cryptography">Cryptography</a></li>
+            <li><a href="#hashing">Hashing</a></li>
+            <li><a href="#forensics">Forensics</a></li>
+            <li><a href="#re">Reverse Engineering</a></li>
+            <li><a href="#we">Web Exploitation</a></li>
+            <li><a href="#others">Others</a></li>
+            <li><a href="mailto:support@redvault.org">Support</a></li>
+        </ul>
+    </nav>
+
+    <!-- 3) Dark overlay behind the mobile-nav -->
+    <div class="mobile-nav-overly"></div>
+
+    <!-- 4) Your existing site container -->
     <div class="container">
         <button id="menu-toggle" class="hamburger">&#9776;</button>
 
