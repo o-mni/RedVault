@@ -53,14 +53,7 @@ function copyCommand(codeId, button) {
 }
 
 const menuToggle = document.getElementById('menu-toggle');
-const overlay = document.getElementById('overlay');
 const body = document.body;
-
 menuToggle.addEventListener('click', () => {
     body.classList.toggle('menu-open');
-});
-
-// clicking the overlay also closes the menu
-overlay.addEventListener('click', () => {
-    body.classList.remove('menu-open');
 });
