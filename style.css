@@ -130,46 +130,40 @@ a:hover {
     margin-top: auto;
 }
 
-/* ---- mobile drop-down menu ---- */
-#mobile-menu {
-    list-style: none;
-    margin: 0.5em 0 0;
-    padding: 0;
-    display: none;
-    /* hide by default */
-    position: absolute;
-    /* so it floats below the button */
-    top: 3rem;
-    /* adjust to sit below your button */
-    left: 1rem;
-    /* align with your button */
-    background: #010409;
-    border: 1px solid #2d3748;
-    border-radius: 6px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-}
+/* at the bottom of style.css: */
+@media (max-width: 768px) {
 
-#mobile-menu.show {
-    display: block;
-    /* when “show” class is added */
-}
+    /* hide all the page-links initially */
+    .sidebar-btn,
+    .sidebar-supp {
+        display: none;
+    }
 
-#mobile-menu li+li {
-    margin-top: 0.25em;
-}
+    /* when .open is applied to the sidebar, stack them vertically */
+    .sidebar.open .sidebar-btn,
+    .sidebar.open .sidebar-supp {
+        display: block;
+        width: 100%;
+        margin: 0.5em 0;
+        text-align: left;
+        padding: 0.75em 1em;
+        background: none;
+        border: none;
+        color: #ecf3f8;
+        font-size: 1rem;
+    }
 
-#mobile-menu button {
-    background: none;
-    border: none;
-    color: #ecf3f8;
-    padding: 0.75em 1em;
-    width: 100%;
-    text-align: left;
-    font-size: 1rem;
-    cursor: pointer;
-}
+    .sidebar.open .sidebar-btn:hover,
+    .sidebar.open .sidebar-supp:hover {
+        background: #2d3748;
+        cursor: pointer;
+    }
 
-#mobile-menu button:hover {
-    background: #2d3748;
+    /* make sure the hamburger sits at the top-left */
+    #menu-toggle {
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        z-index: 1000;
+    }
 }

@@ -52,40 +52,28 @@ function copyCommand(codeId, button) {
     });
 }
 
-const body = document.body;
-const toggle = document.querySelector('.mobile-nav-toggle');
-const overlay = document.querySelector('.mobile-nav-overly');
+// script.js
 
-// flip the menu state
-toggle.addEventListener('click', () => {
-    body.classList.toggle('mobile-nav-active');
-    // swap icon between ☰ and ✕
-    toggle.textContent = body.classList.contains('mobile-nav-active') ? '✕' : '☰';
+const menuToggle = document.getElementById('menu-toggle');
+const sidebar = document.querySelector('.sidebar');
+const links = sidebar.querySelectorAll('.sidebar-btn, .sidebar-supp');
+
+// 1) Open/close menu when hamburger is clicked
+menuToggle.addEventListener('click', e => {
+    e.stopPropagation();       // don’t immediately re-close
+    sidebar.classList.toggle('open');
 });
 
-// clicking the overlay also closes it
-overlay.addEventListener('click', () => {
-    body.classList.remove('mobile-nav-active');
-    toggle.textContent = '☰';
-});
-
-// 1. Toggle the “show” class on the menu
-function toggleMenu() {
-    document.getElementById('mobile-menu').classList.toggle('show');
-}
-
-// 2. Close the menu if you click anywhere outside of it
-document.addEventListener('click', (e) => {
-    const menu = document.getElementById('mobile-menu');
-    const btn = document.getElementById('menu-btn');
-    if (!menu.contains(e.target) && !btn.contains(e.target)) {
-        menu.classList.remove('show');
+// 2) Close when the user clicks anywhere else
+document.addEventListener('click', e => {
+    if (!sidebar.contains(e.target)) {
+        sidebar.classList.remove('open');
     }
 });
 
-// assuming you didn’t already wire it:
-document.getElementById('menu-btn')
-    .addEventListener('click', (e) => {
-        e.stopPropagation();  // prevent the global click-handler from immediately closing it
-        toggleMenu();
+// 3) Close menu when a link is chosen
+links.forEach(link => {
+    link.addEventListener('click', () => {
+        sidebar.classList.remove('open');
     });
+});
