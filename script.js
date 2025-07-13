@@ -52,8 +52,15 @@ function copyCommand(codeId, button) {
     });
 }
 
-const btn = document.getElementById('menu-toggle');
-const sidebar = document.querySelector('.sidebar');
-btn.addEventListener('click', () => {
-    sidebar.classList.toggle('collapsed');
+const menuToggle = document.getElementById('menu-toggle');
+const overlay = document.getElementById('overlay');
+const body = document.body;
+
+menuToggle.addEventListener('click', () => {
+    body.classList.toggle('menu-open');
+});
+
+// clicking the overlay also closes the menu
+overlay.addEventListener('click', () => {
+    body.classList.remove('menu-open');
 });
