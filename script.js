@@ -52,19 +52,24 @@ function copyCommand(codeId, button) {
     });
 }
 
-const toggleBtn = document.getElementById('menu-toggle');
-const sidebar = document.querySelector('.sidebar');
 const bodyEl = document.body;
+const openBtn = document.getElementById('menu-toggle');
+const closeBtn = document.getElementById('close-menu');
+const overlay = document.querySelector('.overlay');
 
-toggleBtn.addEventListener('click', e => {
+// open menu
+openBtn.addEventListener('click', e => {
     e.stopPropagation();
+    bodyEl.classList.add('menu-open');
+});
 
-    // if we're on a “desktop” viewport, just hide/show the sidebar;
-    // otherwise fall back to your existing mobile slide-in logic
-    if (window.innerWidth > 768) {
-        sidebar.classList.toggle('hidden');
-    } else {
-        bodyEl.classList.toggle('menu-open');
-    }
+// close menu via “X”
+closeBtn.addEventListener('click', () => {
+    bodyEl.classList.remove('menu-open');
+});
+
+// clicking overlay also closes it
+overlay.addEventListener('click', () => {
+    bodyEl.classList.remove('menu-open');
 });
 
