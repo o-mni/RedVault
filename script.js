@@ -52,24 +52,23 @@ function copyCommand(codeId, button) {
     });
 }
 
-const bodyEl = document.body;
-const openBtn = document.getElementById('menu-toggle');
-const closeBtn = document.getElementById('close-menu');
-const overlay = document.querySelector('.overlay');
+const body = document.body;
+const toggleBtn = document.getElementById('menu-toggle');
+const overlay = document.getElementById('modal-overlay');
+const closeBtn = document.getElementById('modal-close');
 
-// open menu
-openBtn.addEventListener('click', e => {
+// 1) Open the modal
+toggleBtn.addEventListener('click', (e) => {
     e.stopPropagation();
-    bodyEl.classList.add('menu-open');
+    body.classList.add('modal-open');
 });
 
-// close menu via “X”
+// 2) Close via the “✕”
 closeBtn.addEventListener('click', () => {
-    bodyEl.classList.remove('menu-open');
+    body.classList.remove('modal-open');
 });
 
-// clicking overlay also closes it
+// 3) Close by clicking outside (on the overlay)
 overlay.addEventListener('click', () => {
-    bodyEl.classList.remove('menu-open');
+    body.classList.remove('modal-open');
 });
-

@@ -130,88 +130,82 @@ a:hover {
     margin-top: auto;
 }
 
-/* MOBILE OFF-CANVAS PANEL */
-@media (max-width: 768px) {
+/* ===== Modal Overlay ===== */
+#modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    z-index: 999;
+    /* behind the modal */
+}
 
-    /* 1) full-screen dark overlay */
-    .overlay {
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.6);
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s, visibility 0.3s;
-        z-index: 900;
-    }
+/* ===== Centered Modal ===== */
+#modal-menu {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: #010409;
+    border-radius: 8px;
+    padding: 2rem 1.5rem;
+    width: 90%;
+    max-width: 320px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    z-index: 1000;
+    text-align: center;
+}
 
-    body.menu-open .overlay {
-        opacity: 1;
-        visibility: visible;
-    }
+/* Close button in the top-right */
+#modal-close {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: #ecf3f8;
+    cursor: pointer;
+}
 
-    /* 2) hide it off-screen by default */
-    .sidebar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 80vw;
-        max-width: 300px;
-        height: 100%;
-        background: rgba(1, 4, 9, 0.85);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 0 12px 12px 0;
-        transform: translateX(-100%);
-        transition: transform 0.3s ease;
-        padding: 2rem 1rem;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        z-index: 1000;
-    }
+/* Vertical list of buttons */
+#modal-menu ul {
+    list-style: none;
+    margin: 1rem 0 0;
+    padding: 0;
+}
 
-    /* slide it in when “menu-open” is on <body> */
-    body.menu-open .sidebar {
-        transform: translateX(0);
-    }
+#modal-menu li+li {
+    margin-top: 0.75rem;
+}
 
-    /* 3) close-icon styles */
-    .close-menu {
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-        background: none;
-        border: none;
-        font-size: 1.5rem;
-        color: #ecf3f8;
-        cursor: pointer;
-    }
+#modal-menu button {
+    background: none;
+    border: none;
+    color: #ecf3f8;
+    font-size: 1.1rem;
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
 
-    /* 4) stack and style your links vertically */
-    .sidebar-logo {
-        margin: 0 auto 2rem;
-        max-width: 80px;
-    }
+#modal-menu button:hover {
+    background: #2d3748;
+}
 
-    .sidebar-btn,
-    .sidebar-supp {
-        display: block;
-        width: 100%;
-        padding: 0.75rem 1rem;
-        background: none;
-        border: none;
-        text-align: left;
-        font-size: 1.1rem;
-        color: #ecf3f8;
-        border-radius: 6px;
-    }
+/* ===== When active (modal-open on body) ===== */
+body.modal-open #modal-overlay,
+body.modal-open #modal-menu {
+    visibility: visible;
+    opacity: 1;
+}
 
-    .sidebar-btn.active {
-        color: #12d640;
-    }
-
-    .sidebar-btn:hover,
-    .sidebar-supp:hover {
-        background: rgba(255, 255, 255, 0.1);
-        cursor: pointer;
-    }
+body.modal-open #modal-menu {
+    transform: translate(-50%, -50%) scale(1);
 }
