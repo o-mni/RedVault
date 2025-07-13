@@ -52,27 +52,19 @@ function copyCommand(codeId, button) {
     });
 }
 
-// script.js
-
 const toggleBtn = document.getElementById('menu-toggle');
+const sidebar = document.querySelector('.sidebar');
 const bodyEl = document.body;
-const overlay = document.querySelector('.overlay');
 
-// 1) Toggle menu-open on button click
-toggleBtn.addEventListener('click', (e) => {
+toggleBtn.addEventListener('click', e => {
     e.stopPropagation();
-    bodyEl.classList.toggle('menu-open');
-});
 
-// 2) Clicking the overlay also closes it
-overlay.addEventListener('click', () => {
-    bodyEl.classList.remove('menu-open');
-});
-
-// 3) Clicking anywhere outside the sidebar closes it, too
-document.addEventListener('click', (e) => {
-    if (!document.querySelector('.sidebar').contains(e.target)
-        && e.target !== toggleBtn) {
-        bodyEl.classList.remove('menu-open');
+    // if we're on a “desktop” viewport, just hide/show the sidebar;
+    // otherwise fall back to your existing mobile slide-in logic
+    if (window.innerWidth > 768) {
+        sidebar.classList.toggle('hidden');
+    } else {
+        bodyEl.classList.toggle('menu-open');
     }
 });
+
