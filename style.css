@@ -132,61 +132,89 @@ a:hover {
 
 @media (max-width: 768px) {
 
-    /* 1) Full-screen modal */
-    .sidebar {
+    /* full-screen overlay */
+    #overlay {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.2s ease;
+        z-index: 900;
+    }
+
+    body.menu-open #overlay {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* center-modal sidebar */
+    .sidebar {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.8);
+        width: 90%;
+        max-width: 300px;
         background-color: #010409;
-        transform: translateY(-100%);
-        transition: transform 0.3s ease;
+        border-radius: 12px;
+        padding: 2rem 1rem;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        /* vertical centering */
-        align-items: center;
-        /* horizontal centering */
+        align-items: stretch;
+        gap: 1rem;
+        opacity: 0;
+        transition: transform 0.2s ease, opacity 0.2s ease;
         z-index: 1000;
-        padding: 0;
-        /* we’ll space buttons manually */
     }
 
-    /* 2) Show it when menu-open is on <body> */
     body.menu-open .sidebar {
-        transform: translateY(0);
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
     }
 
-    /* 3) Style the items for easy tapping */
+    /* style the logo and buttons vertically */
     .sidebar-logo {
-        margin-bottom: 2rem;
-        max-width: 100px;
+        display: block;
+        margin: 0 auto 1.5rem;
+        max-width: 80px;
     }
 
     .sidebar-btn {
-        width: auto;
-        padding: 1rem 2rem;
-        margin: 0.5rem 0;
-        font-size: 1.25rem;
+        padding: 0.75rem;
+        font-size: 1.1rem;
+        border-radius: 6px;
+        background: none;
+        color: #ecf3f8;
         text-align: center;
-        border-radius: 8px;
+        border: 1px solid #2d3748;
     }
 
-    .sidebar-btn:not(.active):hover {
-        background-color: #1a202c;
+    .sidebar-btn.active,
+    .sidebar-btn:hover {
+        background-color: #2d3748;
     }
 
-    /* 4) Hide the support link or tuck it at the bottom */
+    /* support link at bottom */
     .sidebar-supp {
-        position: absolute;
-        bottom: 2rem;
-        display: block;
+        margin-top: 2rem;
         font-size: 0.9rem;
+        color: #a0aec0;
+        text-align: center;
     }
 
-    /* 5) Always show the hamburger */
+    /* always show hamburger in the corner */
     .hamburger {
-        display: block;
+        position: fixed;
+        top: 1em;
+        left: 1em;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: #ecf3f8;
+        z-index: 1100;
     }
 }
