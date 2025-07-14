@@ -146,25 +146,33 @@ a:hover {
     }
 
     /* make the search container fill the screen with side padding */
+    /* mobile: make search bar a fixed, but capped, centered strip */
     .search-container {
-        width: 100%;
-        padding: 0 1rem;
-        margin: 0;
-        /* remove any extra margins */
         position: fixed;
-        /* keep it at the top */
         top: 0;
         left: 0;
+        right: 0;
+        /* span full viewport */
+        padding: 0.75rem 1rem;
+        /* vertical/horizontal padding */
         background: #222;
         z-index: 1001;
+        display: flex;
+        justify-content: center;
+        /* center the input */
     }
 
+    /* cap the input’s width so it never feels huge on phone */
     .search-input {
-        width: 100px;
-        max-width: 100px;
-        padding: 0.75rem 1rem;
+        width: 100%;
+        max-width: 320px;
+        /* adjust to taste */
+        padding: 0.5rem 1rem;
         font-size: 1rem;
+        box-sizing: border-box;
+        /* include padding in that max-width */
     }
+
 
     /* push content below the fixed search bar */
     .content {
