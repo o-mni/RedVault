@@ -73,7 +73,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 100%;
+    min-width: 100%;
 }
 
 .code-snippet code {
@@ -187,5 +187,10 @@ a:hover {
     /* 5) Push content below the sidebar */
     .content {
         margin-top: 1rem;
+    }
+
+    .code-snippet code {
+        white-space: pre-wrap;
+        font-size: 1em;
     }
 }
