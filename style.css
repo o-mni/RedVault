@@ -44,7 +44,7 @@ body {
     flex-grow: 1;
     padding: 2em;
     background-color: #0d1117;
-    width: 1850px;
+    width: 100vh;
 }
 
 .box {
