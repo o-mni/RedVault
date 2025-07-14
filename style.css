@@ -132,66 +132,68 @@ a:hover {
     margin-top: auto;
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
 
-    .box {
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    /* 1) Stack the entire layout vertically */
-    .container {
-        display: flex;
-        flex-direction: column;
-    }
-
-    /* 2) Make the sidebar full-width, always visible */
+    /* 1) Always show sidebar (no off‐canvas) */
     .sidebar {
-        position: relative;
-        /* flow in the page */
+        transform: none !important;
+        /* override any hide/slide rules */
+        position: fixed;
+        top: 0;
+        left: 0;
         width: 100%;
-        transform: none;
-        /* cancel any off-canvas rules */
-        padding: 1rem 0;
-        background-color: #010409;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        overflow-x: auto;
+        background: #222;
+        padding: 0.5rem 0;
+        z-index: 1000;
     }
 
-    /* 3) Hide the hamburger button (we won’t toggle) */
-    #menu-toggle,
-    .hamburger {
-        display: none;
+    /* 2) Style the moved search */
+    .mobile-search {
+        flex: 1;
+        /* take remaining space */
+        padding: 0 1rem;
     }
 
-    /* 4) Stack your page buttons full-width */
-    .sidebar-btn,
-    .sidebar-supp {
-        display: block;
+    .mobile-search .search-input {
         width: 100%;
-        margin: 0.25em 0;
-        padding: 0.75em 1em;
-        text-align: center;
         font-size: 1rem;
-        background: none;
-        border: none;
-        color: #ecf3f8;
+        padding: 0.5rem;
+        background-color: #777;
+        color: #fff;
     }
 
-    .sidebar-btn:hover,
-    .sidebar-supp:hover {
-        background: #2d3748;
-        cursor: pointer;
+    .mobile-search .search-input::placeholder {
+        color: #ddd;
     }
 
-    /* 5) Push content below the sidebar */
+    /* 3) Push content below the bar + search */
     .content {
-        margin-top: 1rem;
+        margin-top: 4.5rem;
+        /* adjust if your bar gets taller */
+        margin-left: 0;
+        /* full‐width on mobile */
+        padding: 0 1rem;
     }
 
-    .code-snippet code {
-        white-space: pre-wrap;
-        font-size: 1em;
+    /* 4) Make buttons easy to tap */
+    .sidebar-btn {
+        flex: none;
+        margin: 0 0.5rem;
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    /* 5) Boxes full‐width under the content */
+    .box {
+        width: auto;
+        margin-bottom: 1.5rem;
     }
 }
+
 
 /* --- search bar --- */
 .search-container {
