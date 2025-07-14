@@ -15,6 +15,8 @@ body {
 
 .sidebar {
     width: 20vh;
+    max-width: 200px;
+    min-width: 100px;
     background-color: #010409;
     display: flex;
     flex-direction: column;
@@ -51,6 +53,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s, background-color 0.2s;
     margin-bottom: 20px;
+    border-width: 100%;
 }
 
 .hidden {
