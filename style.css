@@ -138,6 +138,11 @@ a:hover {
 
 @media screen and (max-width: 768px) {
 
+    .box {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
     /* 1) Stack the entire layout vertically */
     .container {
         display: flex;
