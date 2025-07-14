@@ -9,28 +9,6 @@
 </head>
 
 <body>
-    <!-- 1) Full‐screen dark backdrop, hidden by default -->
-    <div id="modal-overlay"></div>
-
-    <!-- 2) Centered modal dialog, hidden by default -->
-    <div id="modal-menu">
-        <button id="modal-close" aria-label="Close menu">✕</button>
-        <ul>
-            <li><button onclick="showPage('home')">Home</button></li>
-            <li><button onclick="showPage('about')">Cryptography</button></li>
-            <li><button onclick="showPage('hashing')">Hashing</button></li>
-            <li><button onclick="showPage('forensics')">Forensics</button></li>
-            <li><button onclick="showPage('re')">Reverse Engineering</button></li>
-            <li><button onclick="showPage('we')">Web Exploitation</button></li>
-            <li><button onclick="showPage('others')">Others</button></li>
-            <li><button onclick="/* maybe mailto or show support */">Support</button></li>
-        </ul>
-    </div>
-
-    <!-- 3) Your existing hamburger toggle -->
-    <button id="menu-toggle" aria-label="Open menu">☰</button>
-
-
     <div class="container">
         <aside class="sidebar">
             <button class="sidebar-btn active" onclick="showPage('home', this)">Home</button>
