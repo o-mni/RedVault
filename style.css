@@ -46,8 +46,7 @@ body {
 }
 
 .box {
-    box-sizing: border-box;
-    width: 10000px;
+    width: 100vh;
 
     background: #141a23;
     padding: 1em;
