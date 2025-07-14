@@ -130,82 +130,53 @@ a:hover {
     margin-top: auto;
 }
 
-/* ===== Modal Overlay ===== */
-#modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.6);
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.2s ease, visibility 0.2s ease;
-    z-index: 999;
-    /* behind the modal */
-}
+@media screen and (max-width: 768px) {
 
-/* ===== Centered Modal ===== */
-#modal-menu {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.8);
-    background: #010409;
-    border-radius: 8px;
-    padding: 2rem 1.5rem;
-    width: 90%;
-    max-width: 320px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
-    z-index: 1000;
-    text-align: center;
-}
+    /* 1) Stack the entire layout vertically */
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
 
-/* Close button in the top-right */
-#modal-close {
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-    background: none;
-    border: none;
-    font-size: 1.2rem;
-    color: #ecf3f8;
-    cursor: pointer;
-}
+    /* 2) Make the sidebar full-width, always visible */
+    .sidebar {
+        position: relative;
+        /* flow in the page */
+        width: 100%;
+        transform: none;
+        /* cancel any off-canvas rules */
+        padding: 1rem 0;
+        background-color: #010409;
+    }
 
-/* Vertical list of buttons */
-#modal-menu ul {
-    list-style: none;
-    margin: 1rem 0 0;
-    padding: 0;
-}
+    /* 3) Hide the hamburger button (we won’t toggle) */
+    #menu-toggle,
+    .hamburger {
+        display: none;
+    }
 
-#modal-menu li+li {
-    margin-top: 0.75rem;
-}
+    /* 4) Stack your page buttons full-width */
+    .sidebar-btn,
+    .sidebar-supp {
+        display: block;
+        width: 100%;
+        margin: 0.25em 0;
+        padding: 0.75em 1em;
+        text-align: center;
+        font-size: 1rem;
+        background: none;
+        border: none;
+        color: #ecf3f8;
+    }
 
-#modal-menu button {
-    background: none;
-    border: none;
-    color: #ecf3f8;
-    font-size: 1.1rem;
-    width: 100%;
-    padding: 0.75rem;
-    border-radius: 4px;
-    cursor: pointer;
-}
+    .sidebar-btn:hover,
+    .sidebar-supp:hover {
+        background: #2d3748;
+        cursor: pointer;
+    }
 
-#modal-menu button:hover {
-    background: #2d3748;
-}
-
-/* ===== When active (modal-open on body) ===== */
-body.modal-open #modal-overlay,
-body.modal-open #modal-menu {
-    visibility: visible;
-    opacity: 1;
-}
-
-body.modal-open #modal-menu {
-    transform: translate(-50%, -50%) scale(1);
+    /* 5) Push content below the sidebar */
+    .content {
+        margin-top: 1rem;
+    }
 }
