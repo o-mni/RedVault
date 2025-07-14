@@ -141,6 +141,10 @@ a:hover {
         box-sizing: border-box;
     }
 
+    .sidebar {
+        display: none;
+    }
+
     /* make the search container fill the screen with side padding */
     .search-container {
         width: 100%;
