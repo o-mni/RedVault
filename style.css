@@ -77,7 +77,7 @@ body {
 /* Mobile: stack sidebar on top */
 @media screen and (max-width: 768px) {
     .container {
-        flex-direction: column;
+        flex-direction: row;
     }
 
     .sidebar {
