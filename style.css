@@ -33,7 +33,7 @@ body {
     cursor: pointer;
     transition: background 0.3s;
     width: 100%;
-    text-align: left;
+    text-align: center;
     border-radius: 12px;
 }
 
