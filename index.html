@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>RedVault</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="vault.png" type="vault.png">
@@ -11,25 +11,50 @@
 
 <body>
     <div class="container">
-        <aside class="sidebar">
-            <button class="sidebar-btn active" onclick="showPage('home', this)">All</button>
-            <button class="sidebar-btn" onclick="showPage('about', this)">Cryptography</button>
-            <button class="sidebar-btn" onclick="showPage('about', this)">Hashing</button>
-            <button class="sidebar-btn" onclick="showPage('about', this)">Forensics</button>
-            <button class="sidebar-btn" onclick="showPage('about', this)">Reverse Engineering</button>
-            <button class="sidebar-btn" onclick="showPage('about', this)">Web Exploitation</button>
-            <button class="sidebar-btn" onclick="showPage('about', this)">Others</button>
+        <button class="hamburger" onclick="document.body.classList.toggle('nav-open')" aria-label="Toggle menu">
+            ☰
+        </button>
+        <nav class="sidebar">
+            <div class="logo-container">
+                <img src="vault.png" alt="Vault Logo" class="sidebar-logo">
+            </div>
+
+            <button class="sidebar-btn active" data-filter="all" onclick="applyFilter('all', this)">All</button>
+
+            <button class="sidebar-btn" data-filter="cryptography"
+                onclick="applyFilter('cryptography', this)">Cryptography</button>
+
+            <button class="sidebar-btn" data-filter="hashing" onclick="applyFilter('hashing', this)">Hashing</button>
+
+            <button class="sidebar-btn" data-filter="forensics"
+                onclick="applyFilter('forensics', this)">Forensics</button>
+
+            <button class="sidebar-btn" data-filter="reverse" onclick="applyFilter('reverse', this)">Reverse
+                Engineering</button>
+
+            <button class="sidebar-btn" data-filter="web" onclick="applyFilter('web', this)">Web Exploitation</button>
+
+            <button class="sidebar-btn" data-filter="others" onclick="applyFilter('others', this)">Others</button>
+
+
 
             <a class="sidebar-supp" href="https://mail.google.com/mail/?view=cm&to=support.redvault@z3r0app.org"
                 target="_blank">Support</a>
-        </aside>
+        </nav>
 
         <main class="content">
+            <!-- Search bar -->
+            <div class="search-container">
+                <input type="text" id="global-search" placeholder="🔍 Search …" oninput="filterBoxes()"
+                    class="search-input" />
+            </div>
 
             <section id="home" class="page">
-                <div class="box">
+
+                <div class="box" data-category="hashing">
                     <h2>Welcome to Home</h2>
-                    <p>This is the home page. 2 <a href="https://example.com" target="_blank">Visit Example</a></p>
+                    <h4>This is the home page.</h4>
+                    <p>Link to the web: <a href="https://example.com" target="_blank">Visit Example</a></p>
 
                     <div class="code-snippet">
                         <code id="cmd-git">git clone https://github.com/user/repo.git</code>
@@ -42,10 +67,8 @@
                         </button>
                     </div>
                 </div>
-            </section>
 
-            <section id="about" class="page hidden">
-                <div class="box">
+                <div class="box" data-category="reverse">
                     <h2>About This Project</h2>
                     <p>This is a simple static site hosted on GitHub Pages.</p>
 
@@ -62,15 +85,9 @@
                     </div>
                 </div>
 
-    </div>
-    </div>
-    </section>
+            </section>
 
-
-    </main>
-    </div>
-
-    <script src="script.js"></script>
+            <script src="script.js"></script>
 </body>
 
 </html>

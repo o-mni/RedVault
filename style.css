@@ -132,63 +132,105 @@ a:hover {
     margin-top: auto;
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
 
-    .box {
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    /* 1) Stack the entire layout vertically */
-    .container {
-        display: flex;
-        flex-direction: column;
-    }
-
-    /* 2) Make the sidebar full-width, always visible */
+    /* a) Sidebar becomes a top bar */
     .sidebar {
-        position: relative;
-        /* flow in the page */
+        position: fixed;
+        top: 0;
+        left: 0;
         width: 100%;
-        transform: none;
-        /* cancel any off-canvas rules */
-        padding: 1rem 0;
-        background-color: #010409;
+        display: flex;
+        overflow-x: auto;
+        background: #222;
+        padding: 0.5rem 0;
+        z-index: 1000;
+        transform: translateY(0);
+        transition: transform 0.3s ease;
     }
 
-    /* 3) Hide the hamburger button (we won’t toggle) */
-    #menu-toggle,
-    .hamburger {
-        display: none;
+    .sidebar-logo {
+        margin: 0 1rem;
+        flex: none;
     }
 
-    /* 4) Stack your page buttons full-width */
-    .sidebar-btn,
-    .sidebar-supp {
-        display: block;
-        width: 100%;
-        margin: 0.25em 0;
-        padding: 0.75em 1em;
-        text-align: center;
-        font-size: 1rem;
-        background: none;
-        border: none;
-        color: #ecf3f8;
+    .sidebar-btn {
+        flex: none;
+        margin: 0 0.5rem;
+        font-size: 0.9rem;
+        padding: 0.5rem 0.75rem;
     }
 
-    .sidebar-btn:hover,
-    .sidebar-supp:hover {
-        background: #2d3748;
-        cursor: pointer;
-    }
-
-    /* 5) Push content below the sidebar */
+    /* b) Push content below the nav */
     .content {
-        margin-top: 1rem;
+        margin-top: 3.5rem;
+        margin-left: 0;
+        padding: 0 1rem;
     }
 
-    .code-snippet code {
-        white-space: pre-wrap;
-        font-size: 1em;
+    /* c) Stretch & bump up search field */
+    .search-input {
+        width: 100%;
+        font-size: 1rem;
+        padding: 0.75rem 1rem;
+        margin: 1rem 0;
     }
+
+    /* d) Full-width boxes */
+    .box {
+        margin: 0 0 1.5rem;
+        width: auto;
+    }
+}
+
+/* hide sidebar off-canvas by default */
+.sidebar {
+    transform: translateY(-100%);
+}
+
+/* show when body.nav-open is set */
+body.nav-open .sidebar {
+    transform: translateY(0);
+}
+
+/* style the hamburger */
+.hamburger {
+    position: fixed;
+    top: 0.5rem;
+    left: 0.5rem;
+    z-index: 1100;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: #fff;
+    padding: 0.25rem;
+}
+
+/* --------------------------------------- media ------------------------ */
+
+/* --- search bar --- */
+.search-container {
+    margin-bottom: 1.5em;
+    text-align: left;
+}
+
+.search-input {
+    width: 100vh;
+    max-width: 600px;
+    min-width: 300px;
+    padding: 0.5em 1em;
+    border-radius: 6px;
+    border: none;
+    font-size: 1em;
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.3);
+}
+
+/* highlight matched text in red */
+.highlight {
+    color: red;
+}
+
+.search-input::placeholder {
+    color: #ccc;
+    /* lighter grey placeholder text */
 }
