@@ -16,6 +16,8 @@
                 <img src="vault.png" alt="Vault Logo" class="sidebar-logo">
             </div>
 
+
+
             <button class="sidebar-btn active" data-filter="all" onclick="applyFilter('all', this)">All</button>
 
             <button class="sidebar-btn" data-filter="cryptography"
@@ -44,6 +46,7 @@
             <div class="search-container">
                 <input type="text" id="global-search" placeholder="🔍 Search …" oninput="filterBoxes()"
                     class="search-input" />
+                <button type="button" id="search-clear" class="search-clear" aria-label="Clear search">x</button>
             </div>
 
             <section id="home" class="page">

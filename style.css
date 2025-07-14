@@ -219,3 +219,17 @@ a:hover {
     color: #ccc;
     /* lighter grey placeholder text */
 }
+
+/* absolutely position the × over the right edge of the input */
+.search-clear {
+    margin-left: -2.5em;
+    margin-top: 0.15em;
+    position: relative;
+    z-index: 1;
+    border: none;
+    background: none;
+}
+
+.search-clear:hover {
+    color: #ff0000;
+}

@@ -92,3 +92,11 @@ function copyCommand(codeId, button) {
         }, 1000);
     });
 }
+
+// after your filterBoxes() definition, or at the bottom of the file:
+document.getElementById('search-clear').addEventListener('click', () => {
+    const inp = document.getElementById('global-search');
+    inp.value = '';
+    filterBoxes();
+    inp.focus();
+});
