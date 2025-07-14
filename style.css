@@ -201,7 +201,6 @@ a:hover {
 .search-input {
     width: 100vh;
     max-width: 600px;
-    min-width: 300px;
     padding: 0.5em 1em;
     border-radius: 6px;
     border: none;
