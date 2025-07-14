@@ -41,8 +41,7 @@ body {
 }
 
 .content {
-    flex-grow: 1;
-    padding: 2em;
+    padding: 0;
     background-color: #0d1117;
     width: 100%;
 }
