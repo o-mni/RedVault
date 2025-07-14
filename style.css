@@ -47,15 +47,15 @@ body {
 }
 
 .box {
+    box-sizing: border-box;
+    width: 100%;
+
     background: #141a23;
     padding: 1em;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s, background-color 0.2s;
     margin-bottom: 20px;
-
-    box-sizing: border-box;
-    width: 100%;
 }
 
 .hidden {
