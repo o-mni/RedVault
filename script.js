@@ -3,6 +3,9 @@ function showPage(pageId) {
         page.classList.add('hidden');
     });
     document.getElementById(pageId).classList.remove('hidden');
+    document.querySelectorAll('.sidebar-btn')
+        .forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
 }
 
 function copyToClipboard(text) {
