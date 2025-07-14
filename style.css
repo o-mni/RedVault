@@ -74,7 +74,6 @@ body {
     align-items: center;
     justify-content: space-between;
     max-width: 100%;
-    overflow-x: auto;
 }
 
 .code-snippet code {
