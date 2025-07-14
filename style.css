@@ -1,17 +1,15 @@
-/* Reset & background */
 html,
 body {
     margin: 0;
-    height: 100%;
     font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
     color: #ecf3f8;
     background-color: #0d1117;
 }
 
-/* Layout */
 .container {
     display: flex;
-    height: 100vh;
     width: 100%;
 }
 
@@ -23,9 +21,8 @@ body {
     padding: 1em;
 }
 
-/* Buttons */
-.sidebar-btn {
-    background: none;
+.sidebar button {
+    background: #010409;
     color: #ecf3f8;
     border: none;
     padding: 10px;
@@ -37,57 +34,128 @@ body {
     border-radius: 12px;
 }
 
-.sidebar-btn:hover {
+.sidebar button:hover {
     background: #555;
 }
 
-.sidebar-btn.active {
-    background-color: #f73d3dba;
-    color: #fff;
-}
-
-/* Support link */
-.sidebar-supp {
-    margin-top: auto;
-    padding: 16px;
-    text-align: center;
-    color: #999;
-    font-size: 0.95em;
-    border-top: 1px solid #222;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.sidebar-supp:hover {
-    color: #fff;
-}
-
-/* Content */
 .content {
     flex-grow: 1;
     padding: 2em;
     background-color: #0d1117;
 }
 
-/* Utility */
+.box {
+    background: #141a23;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, background-color 0.2s;
+    margin-bottom: 20px;
+}
+
 .hidden {
     display: none;
 }
 
-/* Mobile: stack sidebar on top */
+.code-snippet {
+    background-color: #2c2c2c;
+    color: #ecf3f8;
+    font-family: monospace;
+    padding: 1em;
+    border-radius: 6px;
+    position: relative;
+    margin: 1em 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.code-snippet code {
+    white-space: pre-wrap;
+    font-size: 1em;
+}
+
+.copy-icon {
+    background: none;
+    border: none;
+    color: #ecf3f8;
+    margin-left: 1em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s;
+}
+
+.copy-icon:hover {
+    color: #faf8f8;
+}
+
+.copy-icon svg {
+    pointer-events: none;
+}
+
+a {
+    color: #58a6ff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #79c0ff;
+}
+
+.sidebar-logo {
+    width: 100%;
+    max-width: 120px;
+    margin: 0 auto 20px auto;
+    display: block;
+    padding-top: 1px;
+}
+
+.sidebar-btn.active {
+    background-color: #f73d3dba;
+    color: white;
+}
+
+.sidebar-supp {
+    text-align: center;
+    padding: 16px;
+    color: #999;
+    text-decoration: none;
+    font-size: 0.95em;
+    border-top: 1px solid #222;
+    transition: color 0.3s;
+    margin-top: auto;
+}
+
 @media screen and (max-width: 768px) {
+
+    /* 1) Stack the entire layout vertically */
     .container {
+        display: flex;
         flex-direction: column;
     }
 
+    /* 2) Make the sidebar full-width, always visible */
     .sidebar {
+        position: relative;
+        /* flow in the page */
         width: 100%;
+        transform: none;
+        /* cancel any off-canvas rules */
+        padding: 1rem 0;
+        background-color: #010409;
     }
 
-    #menu-toggle {
+    /* 3) Hide the hamburger button (we won’t toggle) */
+    #menu-toggle,
+    .hamburger {
         display: none;
     }
 
+    /* 4) Stack your page buttons full-width */
     .sidebar-btn,
     .sidebar-supp {
         display: block;
@@ -95,8 +163,19 @@ body {
         margin: 0.25em 0;
         padding: 0.75em 1em;
         text-align: center;
+        font-size: 1rem;
+        background: none;
+        border: none;
+        color: #ecf3f8;
     }
 
+    .sidebar-btn:hover,
+    .sidebar-supp:hover {
+        background: #2d3748;
+        cursor: pointer;
+    }
+
+    /* 5) Push content below the sidebar */
     .content {
         margin-top: 1rem;
     }
