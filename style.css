@@ -41,9 +41,10 @@ body {
 }
 
 .content {
-    padding: 0;
+    flex-grow: 1;
+    padding: 2em;
     background-color: #0d1117;
-    width: 100%;
+    width: 1000px;
 }
 
 .box {
