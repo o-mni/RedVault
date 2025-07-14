@@ -132,81 +132,66 @@ a:hover {
     margin-top: auto;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
 
-    /* a) Sidebar becomes a top bar */
-    .sidebar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        display: flex;
-        overflow-x: auto;
-        background: #222;
-        padding: 0.5rem 0;
-        z-index: 1000;
-        transform: translateY(0);
-        transition: transform 0.3s ease;
-    }
-
-    .sidebar-logo {
-        margin: 0 1rem;
-        flex: none;
-    }
-
-    .sidebar-btn {
-        flex: none;
-        margin: 0 0.5rem;
-        font-size: 0.9rem;
-        padding: 0.5rem 0.75rem;
-    }
-
-    /* b) Push content below the nav */
-    .content {
-        margin-top: 3.5rem;
-        margin-left: 0;
-        padding: 0 1rem;
-    }
-
-    /* c) Stretch & bump up search field */
-    .search-input {
-        width: 100%;
-        font-size: 1rem;
-        padding: 0.75rem 1rem;
-        margin: 1rem 0;
-    }
-
-    /* d) Full-width boxes */
     .box {
-        margin: 0 0 1.5rem;
-        width: auto;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* 1) Stack the entire layout vertically */
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* 2) Make the sidebar full-width, always visible */
+    .sidebar {
+        position: relative;
+        /* flow in the page */
+        width: 100%;
+        transform: none;
+        /* cancel any off-canvas rules */
+        padding: 1rem 0;
+        background-color: #010409;
+    }
+
+    /* 3) Hide the hamburger button (we won’t toggle) */
+    #menu-toggle,
+    .hamburger {
+        display: none;
+    }
+
+    /* 4) Stack your page buttons full-width */
+    .sidebar-btn,
+    .sidebar-supp {
+        display: block;
+        width: 100%;
+        margin: 0.25em 0;
+        padding: 0.75em 1em;
+        text-align: center;
+        font-size: 1rem;
+        background: none;
+        border: none;
+        color: #ecf3f8;
+    }
+
+    .sidebar-btn:hover,
+    .sidebar-supp:hover {
+        background: #2d3748;
+        cursor: pointer;
+    }
+
+    /* 5) Push content below the sidebar */
+    .content {
+        margin-top: 1rem;
+    }
+
+    .code-snippet code {
+        white-space: pre-wrap;
+        font-size: 1em;
     }
 }
-
-/* hide sidebar off-canvas by default */
-.sidebar {
-    transform: translateY(-100%);
-}
-
-/* show when body.nav-open is set */
-body.nav-open .sidebar {
-    transform: translateY(0);
-}
-
-/* style the hamburger */
-.hamburger {
-    position: fixed;
-    top: 0.5rem;
-    left: 0.5rem;
-    z-index: 1100;
-    background: transparent;
-    border: none;
-    font-size: 1.5rem;
-    color: #fff;
-    padding: 0.25rem;
-}
-
-/* --------------------------------------- media ------------------------ */
 
 /* --- search bar --- */
 .search-container {
