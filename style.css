@@ -136,7 +136,7 @@ a:hover {
 
     /* Hide sidebar off-canvas */
     .sidebar {
-        display: none;
+        display: none !important;
     }
 
     /* Make search full-width and always visible */
