@@ -47,6 +47,7 @@ body {
     padding: 2em;
     background-color: #0d1117;
     overflow-y: auto;
+    padding-top: 0%;
 }
 
 .box {
@@ -156,10 +157,13 @@ a:hover {
         top: 0;
         left: 0;
         right: 0;
-        /* span full viewport */
-        padding: 0.75rem 1rem;
-        /* vertical/horizontal padding */
-        background: #222;
+        /* span the full viewport width */
+        background-color: #0d1117;
+        /* your dark block color */
+        padding: 0.5rem 1rem;
+        /* half-rem top/bottom, 1rem sides */
+        margin: 0;
+        /* zero out any extra gaps */
         z-index: 1001;
         display: flex;
         justify-content: center;
@@ -207,8 +211,15 @@ a:hover {
 
 /* --- search bar --- */
 .search-container {
+    margin-top: 0em;
     margin-bottom: 1.5em;
     text-align: left;
+    position: sticky;
+    top: 0;
+    background: inherit;
+    z-index: 1000;
+    background-color: #0d1117;
+    padding: 1.5rem 1rem 1.5rem;
 }
 
 .search-input {
