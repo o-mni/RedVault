@@ -17,23 +17,21 @@
             </div>
 
 
-
             <button class="sidebar-btn active" data-filter="all" onclick="applyFilter('all', this)">All</button>
-
-            <button class="sidebar-btn" data-filter="cryptography"
-                onclick="applyFilter('cryptography', this)">Cryptography</button>
-
-            <button class="sidebar-btn" data-filter="hashing" onclick="applyFilter('hashing', this)">Hashing</button>
-
+            <button class="sidebar-btn" data-filter="recon" onclick="applyFilter('recon', this)">Reconnaissance</button>
+            <button class="sidebar-btn" data-filter="scan" onclick="applyFilter('scan', this)">Scanning</button>
+            <button class="sidebar-btn" data-filter="enum" onclick="applyFilter('enum', this)">Enumeration</button>
+            <button class="sidebar-btn" data-filter="exploit"
+                onclick="applyFilter('exploit', this)">Exploitation</button>
+            <button class="sidebar-btn" data-filter="post"
+                onclick="applyFilter('post', this)">Post-Exploitation</button>
+            <button class="sidebar-btn" data-filter="web" onclick="applyFilter('web', this)">Web Exploitation</button>
+            <button class="sidebar-btn" data-filter="crypto" onclick="applyFilter('crypto', this)">Cryptography</button>
             <button class="sidebar-btn" data-filter="forensics"
                 onclick="applyFilter('forensics', this)">Forensics</button>
-
             <button class="sidebar-btn" data-filter="reverse" onclick="applyFilter('reverse', this)">Reverse
                 Engineering</button>
 
-            <button class="sidebar-btn" data-filter="web" onclick="applyFilter('web', this)">Web Exploitation</button>
-
-            <button class="sidebar-btn" data-filter="others" onclick="applyFilter('others', this)">Others</button>
 
 
 
@@ -48,17 +46,17 @@
                     class="search-input" />
                 <button type="button" id="search-clear" class="search-clear" aria-label="Clear search">x</button>
             </div>
-
+            <!---------------------------------------------- content -------------------------------------------------------------->
             <section id="home" class="page">
 
-                <div class="box" data-category="hashing">
-                    <h2>Welcome to Home</h2>
-                    <h4>This is the home page.</h4>
-                    <p>Link to the web: <a href="https://example.com" target="_blank">Visit Example</a></p>
+
+                <div class="box" data-category="scan">
+                    <h2>Nmap</h2>
+                    <h4>Nmap: SYN Scan with Service Version Detection & Default NSE Scripts</h4>
 
                     <div class="code-snippet">
-                        <code id="cmd-git">git clone https://github.com/user/repo.git</code>
-                        <button class="copy-icon" onclick="copyCommand('cmd-git', this)" aria-label="Copy to clipboard">
+                        <code id="cmd-git">nmap -sS -sV -sC 10.0.0.0</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">
                             <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
                                 fill="currentColor">
                                 <path
@@ -66,25 +64,54 @@
                             </svg>
                         </button>
                     </div>
+                    <p>Official website: <a href="https://nmap.org/" target="_blank"
+                            rel="noopener noreferrer">nmap.org</a></p>
                 </div>
 
-                <div class="box" data-category="reverse">
-                    <h2>About This Project</h2>
-                    <h4>This is a simple static site hosted on GitHub Pages.</h4>
 
+                <div class="box" data-category="post">
+                    <h2>John the Ripper</h2>
+                    <h4>Run against `/etc/shadow` using the RockYou wordlist</h4>
                     <div class="code-snippet">
-                        <code id="cmd-user">sherlock user123</code>
-                        <button class="copy-icon" onclick="copyCommand('cmd-user', this)"
-                            aria-label="Copy to clipboard">
-                            <svg class="copy-svg" xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24"
-                                width="18" fill="currentColor">
+                        <code>john --wordlist=/usr/share/wordlists/rockyou.txt /etc/shadow</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
                                 <path
                                     d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
                             </svg>
                         </button>
                     </div>
+                    <p>
+                        View docs on the official site:
+                        <a href="https://www.openwall.com/john/" target="_blank" rel="noopener noreferrer">
+                            openwall.com/john
+                        </a>
+                    </p>
                 </div>
 
+                <div class="box" data-category="post">
+                    <h2>John the Ripper</h2>
+                    <h4>Run against `/etc/shadow` using the RockYou wordlist</h4>
+                    <div class="code-snippet">
+                        <code>john --wordlist=/usr/share/wordlists/rockyou.txt /etc/shadow</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <p>
+                        View docs on the official site:
+                        <a href="https://www.openwall.com/john/" target="_blank" rel="noopener noreferrer">
+                            openwall.com/john
+                        </a>
+                    </p>
+                </div>
+
+                <!---------------------------------------------- content -------------------------------------------------------------->
             </section>
 
             <script src="script.js"></script>

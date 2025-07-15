@@ -78,20 +78,26 @@ function filterBoxes() {
 }
 
 // Copy command text to clipboard and show a checkmark temporarily
-function copyCommand(codeId, button) {
-    const text = document.getElementById(codeId).innerText;
+function copyCommand(button) {
+    // 1) locate the <code> next to this button
+    const snippet = button.closest('.code-snippet');
+    const codeEl = snippet.querySelector('code');
+    const text = codeEl.innerText;
+
+    // 2) copy to clipboard
     navigator.clipboard.writeText(text).then(() => {
-        const originalSVG = button.innerHTML;
+        // 3) swap the button icon to a checkmark
+        const original = button.innerHTML;
         button.innerHTML = `
       <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18" fill="currentColor">
         <path d="M9 16.2l-4.2-4.2L3 13.8 9 19.8 21 7.8l-1.4-1.4z"/>
       </svg>
     `;
-        setTimeout(() => {
-            button.innerHTML = originalSVG;
-        }, 1000);
+        // 4) after 1s, restore original icon
+        setTimeout(() => button.innerHTML = original, 1000);
     });
 }
+
 
 // after your filterBoxes() definition, or at the bottom of the file:
 document.getElementById('search-clear').addEventListener('click', () => {
