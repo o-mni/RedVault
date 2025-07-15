@@ -31,6 +31,8 @@
                 onclick="applyFilter('forensics', this)">Forensics</button>
             <button class="sidebar-btn" data-filter="reverse" onclick="applyFilter('reverse', this)">Reverse
                 Engineering</button>
+            <button class="sidebar-btn" data-filter="protocols"
+                onclick="applyFilter('protocols', this)">Protocols</button>
 
 
 
@@ -91,12 +93,22 @@
                     <h4>Installation:</h4>
                     <div class="code-snippet">
                         <code>sudo apt update && sudo apt install john -y</code>
-                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">…</button>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
                     </div>
                     <h4>Use rockyou wordlist to brute-force Linux <code>/etc/shadow</code> hashes</h4>
                     <div class="code-snippet">
                         <code>john --wordlist=/usr/share/wordlists/rockyou.txt /etc/shadow</code>
-                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">…</button>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
                     </div>
                     <p>
                         Official website:
@@ -112,12 +124,22 @@
                     <h4>Installation:</h4>
                     <div class="code-snippet">
                         <code>sudo apt update && sudo apt install hydra -y</code>
-                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">…</button>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
                     </div>
                     <h4>Attempt SSH logins using <code>users.txt</code> and <code>pass.txt</code></h4>
                     <div class="code-snippet">
                         <code>hydra -L users.txt -P pass.txt ssh://10.0.0.5 -t 4 -f</code>
-                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">…</button>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
                     </div>
                     <p>
                         Official website:
@@ -133,12 +155,22 @@
                     <h4>Installation:</h4>
                     <div class="code-snippet">
                         <code>sudo apt update && sudo apt install gobuster -y</code>
-                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">…</button>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
                     </div>
                     <h4>Discover hidden directories on a web server with a wordlist</h4>
                     <div class="code-snippet">
                         <code>gobuster dir -u https://target.com -w /usr/share/wordlists/raft-large-directories.txt -t 50</code>
-                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">…</button>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
                     </div>
                     <p>
                         Official website:
@@ -154,12 +186,22 @@
                     <h4>Installation:</h4>
                     <div class="code-snippet">
                         <code>sudo apt update && sudo apt install ffuf -y</code>
-                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">…</button>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
                     </div>
                     <h4>Fuzz URL paths or parameters to find hidden endpoints</h4>
                     <div class="code-snippet">
                         <code>ffuf -u https://target.com/FUZZ -w /usr/share/wordlists/raft-large-words.txt -t 100</code>
-                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">…</button>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
                     </div>
                     <p>
                         Official website:
@@ -175,12 +217,22 @@
                     <h4>Installation:</h4>
                     <div class="code-snippet">
                         <code>sudo apt update && sudo apt install aircrack-ng -y</code>
-                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">…</button>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
                     </div>
                     <h4>Monitor and save WPA/WPA2 handshake packets from a target BSSID</h4>
                     <div class="code-snippet">
                         <code>sudo airodump-ng --bssid AA:BB:CC:DD:EE:FF -c 6 -w dump wlan0mon</code>
-                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">…</button>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
                     </div>
                     <p>
                         Official website:
@@ -196,12 +248,22 @@
                     <h4>Installation:</h4>
                     <div class="code-snippet">
                         <code>sudo apt update && sudo apt install aircrack-ng -y</code>
-                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">…</button>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
                     </div>
                     <h4>Use rockyou wordlist to crack the captured <code>.cap</code> file</h4>
                     <div class="code-snippet">
                         <code>aircrack-ng -w /usr/share/wordlists/rockyou.txt dump-01.cap</code>
-                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">…</button>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
                     </div>
                     <p>
                         Official website:
@@ -217,12 +279,22 @@
                     <h4>Installation:</h4>
                     <div class="code-snippet">
                         <code>sudo apt update && sudo apt install metasploit-framework -y</code>
-                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">…</button>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
                     </div>
                     <h4>Launch a Meterpreter reverse_tcp handler on <code>LHOST:LPORT</code></h4>
                     <div class="code-snippet">
                         <code>msfconsole -q -x "use exploit/multi/handler; set PAYLOAD linux/x86/meterpreter/reverse_tcp; set LHOST 10.0.0.1; set LPORT 4444; run"</code>
-                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">…</button>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
                     </div>
                     <p>
                         Official website:
@@ -237,17 +309,9 @@
                 <div class="box" data-category="crypto">
                     <h2>dCode: Caesar Cipher Online Encoder/Decoder</h2>
                     <h4>What it does:</h4>
-                    <div class="code-snippet">
-                        <code>– Sends your plaintext “HELLO” with a shift of 3 to the dCode
-– Returns the encoded result “KHOOR”</code>
-                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
-                                fill="currentColor">
-                                <path
-                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
-                            </svg>
-                        </button>
-                    </div>
+                    <h4>– Sends your plaintext “HELLO” with a shift of 3 to the dCode</h4>
+                    <h4> – Returns the encoded result “KHOOR”</h4>
+
 
                     <p>
                         Official website:
@@ -263,16 +327,6 @@
                     <h2>CyberChef: Web-Based Data “Recipe” Tool</h2>
                     <h4>Browser-based tool for on-the-fly encoding, decoding, encryption, hashing, and data analysis via
                         a drag-and-drop “recipe” interface.</h4>
-                    <div class="code-snippet">
-                        <code>https://gchq.github.io/CyberChef/</code>
-                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
-                                fill="currentColor">
-                                <path
-                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
-                            </svg>
-                        </button>
-                    </div>
                     <p>
                         Official website:
                         <a href="https://gchq.github.io/CyberChef/" target="_blank" rel="noopener noreferrer">
@@ -281,6 +335,322 @@
                     </p>
                 </div>
 
+                <!------------------------------------------------------------------------ PROTOCOLS ---------------------------------------------------------------------------------------------------------->
+                <!-- HTTP -->
+                <div class="box" data-category="protocols">
+                    <h2>HTTP: Retrieve Headers</h2>
+                    <h4>Default port 80 – Fetch HTTP response headers from a web server</h4>
+                    <div class="code-snippet">
+                        <code>curl -I http://target.com</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
+                    </div>
+                    <h4>Banner grab via Telnet (port 80)</h4>
+                    <div class="code-snippet">
+                        <code>telnet target.com 80</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
+                    </div>
+                </div>
+
+                <!-- HTTPS -->
+                <div class="box" data-category="protocols">
+                    <h2>HTTPS: TLS Handshake & Certificate Details</h2>
+                    <h4>Default port 443 – Open a TLS session and display certificate info</h4>
+                    <div class="code-snippet">
+                        <code>openssl s_client -connect target.com:443</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
+                    </div>
+                    <h4>Fetch verbose headers with curl over HTTPS (port 443)</h4>
+                    <div class="code-snippet">
+                        <code>curl -Iv https://target.com</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
+                    </div>
+                </div>
+
+                <!-- SSH -->
+                <div class="box" data-category="protocols">
+                    <h2>SSH: Interactive Shell & SOCKS Proxy</h2>
+                    <h4>Default port 22 – Open a remote shell session over SSH</h4>
+                    <div class="code-snippet">
+                        <code>ssh user@target.com</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
+                    </div>
+                    <h4>Establish a local SOCKS5 proxy on port 1080 via SSH (port 22)</h4>
+                    <div class="code-snippet">
+                        <code>ssh -D 1080 user@target.com</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
+                    </div>
+                </div>
+
+                <!-- FTP -->
+                <div class="box" data-category="protocols">
+                    <h2>FTP: Connect & List Directory</h2>
+                    <h4>Default port 21 – Open an FTP session (anonymous)</h4>
+                    <div class="code-snippet">
+                        <code>ftp target.com</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
+                    </div>
+                    <h4>Banner grab via netcat on port 21</h4>
+                    <div class="code-snippet">
+                        <code>nc target.com 21</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
+                    </div>
+                </div>
+
+                <!-- DNS -->
+                <div class="box" data-category="protocols">
+                    <h2>DNS: Query A Record</h2>
+                    <h4>Default port 53 (UDP/TCP) – Retrieve DNS A record for a domain</h4>
+                    <div class="code-snippet">
+                        <code>dig example.com A +short</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
+                    </div>
+                    <h4>Simple lookup via nslookup (port 53)</h4>
+                    <div class="code-snippet">
+                        <code>nslookup example.com</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
+                    </div>
+                </div>
+
+                <!-- SMTP -->
+                <div class="box" data-category="protocols">
+                    <h2>SMTP: Manual Mail Session</h2>
+                    <h4>Default port 25 – Open connection to SMTP and interact manually</h4>
+                    <div class="code-snippet">
+                        <code>telnet target.com 25</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
+                    </div>
+                    <h4>Test SMTP with swaks utility (port 25)</h4>
+                    <div class="code-snippet">
+                        <code>swaks --to you@target.com --server target.com</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
+                    </div>
+                </div>
+
+                <!-- SMB -->
+                <div class="box" data-category="protocols">
+                    <h2>SMB: List Shares</h2>
+                    <h4>Default port 445 – Enumerate SMB shares anonymously</h4>
+                    <div class="code-snippet">
+                        <code>smbclient -L //target.com -N</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
+                    </div>
+                    <h4>Low-level RPC interaction with rpcclient (port 445)</h4>
+                    <div class="code-snippet">
+                        <code>rpcclient -U "" target.com</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
+                    </div>
+                </div>
+
+                <!-- LDAP -->
+                <div class="box" data-category="protocols">
+                    <h2>LDAP: Anonymous Directory Enumeration</h2>
+                    <h4>Default port 389 – Query all LDAP objects via anonymous bind</h4>
+                    <div class="code-snippet">
+                        <code>ldapsearch -x -h target.com -b "dc=example,dc=com" "(objectClass=*)"</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
+                    </div>
+                    <h4>Collect and view results in LDIF format (port 389)</h4>
+                    <div class="code-snippet">
+                        <code>ldapsearch -x -h target.com -LLL -b "dc=example,dc=com"</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
+                    </div>
+                </div>
+
+                <!-- RDP -->
+                <div class="box" data-category="protocols">
+                    <h2>RDP: Remote Desktop Connection</h2>
+                    <h4>Default port 3389 – Connect to Windows RDP service</h4>
+                    <div class="code-snippet">
+                        <code>xfreerdp /v:target.com</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
+                    </div>
+                    <h4>Alternate client via rdesktop (port 3389)</h4>
+                    <div class="code-snippet">
+                        <code>rdesktop target.com</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
+                    </div>
+                </div>
+
+                <!-- SNMP -->
+                <div class="box" data-category="protocols">
+                    <h2>SNMP: Walk Public Community</h2>
+                    <h4>Default port 161 – Enumerate SNMP data with default “public” community</h4>
+                    <div class="code-snippet">
+                        <code>snmpwalk -v2c -c public target.com</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
+                    </div>
+                    <h4>Check SNMP info with snmp-check script (port 161)</h4>
+                    <div class="code-snippet">
+                        <code>snmp-check target.com</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
+                    </div>
+                </div>
+
+                <!-- Telnet -->
+                <div class="box" data-category="protocols">
+                    <h2>Telnet: Unencrypted Shell</h2>
+                    <h4>Default port 23 – Open a raw Telnet session</h4>
+                    <div class="code-snippet">
+                        <code>telnet target.com 23</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
+                    </div>
+                </div>
+
+                <!-- NTP -->
+                <div class="box" data-category="protocols">
+                    <h2>NTP: Query Time Server</h2>
+                    <h4>Default port 123 – Fetch current time from NTP server</h4>
+                    <div class="code-snippet">
+                        <code>ntpdate -q target.com</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
+                    </div>
+                    <h4>Display NTP peers with chronyc (port 123)</h4>
+                    <div class="code-snippet">
+                        <code>chronyc sources</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
+                    </div>
+                </div>
+
+                <!-- MySQL -->
+                <div class="box" data-category="protocols">
+                    <h2>MySQL: Connect & List Databases</h2>
+                    <h4>Default port 3306 – Login to MySQL as root user</h4>
+                    <div class="code-snippet">
+                        <code>mysql -h target.com -u root -p</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
+                    </div>
+                    <h4>Show all databases (after login)</h4>
+                    <div class="code-snippet">
+                        <code>SHOW DATABASES;</code>
+                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
+                                fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                            </svg></button>
+                    </div>
+                </div>
+                <!------------------------------------------------------------------------ END PROTOCOLS ---------------------------------------------------------------------------------------------------------->
 
 
 
