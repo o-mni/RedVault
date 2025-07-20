@@ -50,12 +50,10 @@ function filterBoxes() {
         // 4) Build "haystack" from <h2>, <h4.description>, and .code-snippet <code>
         const titleEl = box.querySelector('h2');
         const descEls = box.querySelectorAll('h4');
-        const codeEls = box.querySelectorAll('.code-snippet code');
 
         let hay = '';
         if (titleEl) hay += titleEl.innerText + ' ';
         descEls.forEach(el => hay += el.innerText + ' ');
-        codeEls.forEach(el => hay += el.innerText + ' ');
         hay = hay.toLowerCase();
 
         // 5) Hide boxes that don't match the query
@@ -71,10 +69,8 @@ function filterBoxes() {
         descEls.forEach(el => {
             el.innerHTML = el.innerHTML.replace(re, '<span class="highlight">$1</span>');
         });
-        codeEls.forEach(el => {
-            el.innerHTML = el.innerHTML.replace(re, '<span class="highlight">$1</span>');
-        });
     });
+    updateTemplates();
 }
 
 // Copy command text to clipboard and show a checkmark temporarily
@@ -106,3 +102,19 @@ document.getElementById('search-clear').addEventListener('click', () => {
     filterBoxes();
     inp.focus();
 });
+
+// called whenever the user types in the target field
+function updateTemplates() {
+    const tgt = document.getElementById('target-input').value || '{{target}}';
+    document.querySelectorAll('code.templated').forEach(codeEl => {
+        const tpl = codeEl.dataset.template;
+        codeEl.textContent = tpl.replace(/{{target}}/g, tgt);
+    });
+}
+
+// wire it up
+const targetInput = document.getElementById('target-input');
+targetInput.addEventListener('input', updateTemplates);
+
+// initialize on page load (in case you want a default)
+updateTemplates();

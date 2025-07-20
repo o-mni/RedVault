@@ -18,9 +18,10 @@
 
 
             <button class="sidebar-btn active" data-filter="all" onclick="applyFilter('all', this)">All</button>
-            <button class="sidebar-btn" data-filter="recon" onclick="applyFilter('recon', this)">Reconnaissance</button>
-            <button class="sidebar-btn" data-filter="scan" onclick="applyFilter('scan', this)">Scanning</button>
-            <button class="sidebar-btn" data-filter="enum" onclick="applyFilter('enum', this)">Enumeration</button>
+            <button class="sidebar-btn" data-filter="passive-recon" onclick="applyFilter('passive-recon', this)">Passive
+                Recon</button>
+            <button class="sidebar-btn" data-filter="active-recon" onclick="applyFilter('active-recon', this)">Active
+                Recon</button>
             <button class="sidebar-btn" data-filter="exploit"
                 onclick="applyFilter('exploit', this)">Exploitation</button>
             <button class="sidebar-btn" data-filter="post"
@@ -33,6 +34,7 @@
                 Engineering</button>
             <button class="sidebar-btn" data-filter="protocols"
                 onclick="applyFilter('protocols', this)">Protocols</button>
+            <button class="sidebar-btn" data-filter="lists" onclick="applyFilter('lists', this)">Lists</button>
 
 
 
@@ -43,11 +45,19 @@
 
         <main class="content">
             <!-- Search bar -->
+            <!-- Search + Target together -->
             <div class="search-container">
                 <input type="text" id="global-search" placeholder="🔍 Search …" oninput="filterBoxes()"
                     class="search-input" />
-                <button type="button" id="search-clear" class="search-clear" aria-label="Clear search">x</button>
+                <button type="button" id="search-clear" class="search-clear" aria-label="Clear search">✕</button>
+
+                <!-- Moved INSIDE here -->
+                <div class="target-container">
+                    <label for="target-input">Target:</label>
+                    <input type="text" id="target-input" value="10.0.0.0" placeholder="IP or host" />
+                </div>
             </div>
+
             <!---------------------------------------------- content -------------------------------------------------------------->
             <section id="home" class="page">
 
@@ -69,7 +79,8 @@
 
                     <h4>SYN scan plus version detection and default NSE scripts:</h4>
                     <div class="code-snippet">
-                        <code>nmap -sS -sV -sC 10.0.0.0</code>
+                        <code class="templated"
+                            data-template="nmap -sS -sV -sC {{target}}">nmap -sS -sV -sC {{target}}</code>
                         <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">
                             <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
                                 fill="currentColor">
@@ -119,7 +130,7 @@
                 </div>
 
                 <!-- Hydra -->
-                <div class="box" data-category="brute">
+                <div class="box" data-category="exploit">
                     <h2>Hydra</h2>
                     <h4>Installation:</h4>
                     <div class="code-snippet">
@@ -133,7 +144,8 @@
                     </div>
                     <h4>Attempt SSH logins using <code>users.txt</code> and <code>pass.txt</code></h4>
                     <div class="code-snippet">
-                        <code>hydra -L users.txt -P pass.txt ssh://10.0.0.5 -t 4 -f</code>
+                        <code class="templated"
+                            data-template="hydra -L users.txt -P pass.txt ssh://{{target}} -t 4 -f">hydra -L users.txt -P pass.txt ssh://{{target}} -t 4 -f</code>
                         <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
                                 xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
                                 fill="currentColor">
@@ -164,7 +176,8 @@
                     </div>
                     <h4>Discover hidden directories on a web server with a wordlist</h4>
                     <div class="code-snippet">
-                        <code>gobuster dir -u https://target.com -w /usr/share/wordlists/raft-large-directories.txt -t 50</code>
+                        <code class="templated"
+                            data-template="gobuster dir -u https://{{target}} -w /usr/share/wordlists/raft-large-directories.txt -t 50">gobuster dir -u https://{{target}} -w /usr/share/wordlists/raft-large-directories.txt -t 50</code>
                         <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
                                 xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
                                 fill="currentColor">
@@ -195,7 +208,8 @@
                     </div>
                     <h4>Fuzz URL paths or parameters to find hidden endpoints</h4>
                     <div class="code-snippet">
-                        <code>ffuf -u https://target.com/FUZZ -w /usr/share/wordlists/raft-large-words.txt -t 100</code>
+                        <code class="templated"
+                            data-template="ffuf -u https://{{target}}/FUZZ -w /usr/share/wordlists/raft-large-words.txt -t 100">ffuf -u https://{{target}}/FUZZ -w /usr/share/wordlists/raft-large-words.txt -t 100</code>
                         <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
                                 xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
                                 fill="currentColor">
@@ -341,7 +355,8 @@
                     <h2>HTTP: Retrieve Headers</h2>
                     <h4>Default port 80 – Fetch HTTP response headers from a web server</h4>
                     <div class="code-snippet">
-                        <code>curl -I http://target.com</code>
+                        <code class="templated"
+                            data-template="curl -I http://{{target}}">curl -I http://{{target}}</code>
                         <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
                                 xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
                                 fill="currentColor">
@@ -351,7 +366,7 @@
                     </div>
                     <h4>Banner grab via Telnet (port 80)</h4>
                     <div class="code-snippet">
-                        <code>telnet target.com 80</code>
+                        <code class="templated" data-template="telnet {{target}} 80">telnet {{target}} 80</code>
                         <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
                                 xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
                                 fill="currentColor">
@@ -366,7 +381,8 @@
                     <h2>HTTPS: TLS Handshake & Certificate Details</h2>
                     <h4>Default port 443 – Open a TLS session and display certificate info</h4>
                     <div class="code-snippet">
-                        <code>openssl s_client -connect target.com:443</code>
+                        <code class="templated"
+                            data-template="openssl s_client -connect {{target}}:443">openssl s_client -connect {{target}}:443</code>
                         <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
                                 xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
                                 fill="currentColor">
@@ -376,7 +392,8 @@
                     </div>
                     <h4>Fetch verbose headers with curl over HTTPS (port 443)</h4>
                     <div class="code-snippet">
-                        <code>curl -Iv https://target.com</code>
+                        <code class="templated"
+                            data-template="curl -Iv https://{{target}}">curl -Iv https://{{target}}</code>
                         <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
                                 xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
                                 fill="currentColor">
@@ -391,7 +408,7 @@
                     <h2>SSH: Interactive Shell & SOCKS Proxy</h2>
                     <h4>Default port 22 – Open a remote shell session over SSH</h4>
                     <div class="code-snippet">
-                        <code>ssh user@target.com</code>
+                        <code class="templated" data-template="ssh user@{{target}}">ssh user@{{target}}</code>
                         <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
                                 xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
                                 fill="currentColor">
@@ -401,7 +418,8 @@
                     </div>
                     <h4>Establish a local SOCKS5 proxy on port 1080 via SSH (port 22)</h4>
                     <div class="code-snippet">
-                        <code>ssh -D 1080 user@target.com</code>
+                        <code class="templated"
+                            data-template="ssh -D 1080 user@{{target}}">ssh -D 1080 user@{{target}}</code>
                         <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
                                 xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
                                 fill="currentColor">
@@ -416,7 +434,7 @@
                     <h2>FTP: Connect & List Directory</h2>
                     <h4>Default port 21 – Open an FTP session (anonymous)</h4>
                     <div class="code-snippet">
-                        <code>ftp target.com</code>
+                        <code class="templated" data-template="ftp {{target}}">ftp {{target}}</code>
                         <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
                                 xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
                                 fill="currentColor">
@@ -426,7 +444,7 @@
                     </div>
                     <h4>Banner grab via netcat on port 21</h4>
                     <div class="code-snippet">
-                        <code>nc target.com 21</code>
+                        <code class="templated" data-template="nc {{target}} 21">nc {{target}} 21</code>
                         <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
                                 xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
                                 fill="currentColor">
@@ -441,7 +459,7 @@
                     <h2>DNS: Query A Record</h2>
                     <h4>Default port 53 (UDP/TCP) – Retrieve DNS A record for a domain</h4>
                     <div class="code-snippet">
-                        <code>dig example.com A +short</code>
+                        <code class="templated" data-template="dig {{target}} A +short">dig {{target}} A +short</code>
                         <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
                                 xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
                                 fill="currentColor">
@@ -451,7 +469,7 @@
                     </div>
                     <h4>Simple lookup via nslookup (port 53)</h4>
                     <div class="code-snippet">
-                        <code>nslookup example.com</code>
+                        <code class="templated" data-template="nslookup {{target}}">nslookup {{target}}</code>
                         <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
                                 xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
                                 fill="currentColor">
@@ -466,7 +484,7 @@
                     <h2>SMTP: Manual Mail Session</h2>
                     <h4>Default port 25 – Open connection to SMTP and interact manually</h4>
                     <div class="code-snippet">
-                        <code>telnet target.com 25</code>
+                        <code class="templated" data-template="telnet {{target}} 25">telnet {{target}} 25</code>
                         <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
                                 xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
                                 fill="currentColor">
@@ -476,7 +494,8 @@
                     </div>
                     <h4>Test SMTP with swaks utility (port 25)</h4>
                     <div class="code-snippet">
-                        <code>swaks --to you@target.com --server target.com</code>
+                        <code class="templated"
+                            data-template="swaks --to you@{{target}} --server {{target}}">swaks --to you@{{target}} --server {{target}}</code>
                         <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
                                 xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
                                 fill="currentColor">
@@ -491,7 +510,8 @@
                     <h2>SMB: List Shares</h2>
                     <h4>Default port 445 – Enumerate SMB shares anonymously</h4>
                     <div class="code-snippet">
-                        <code>smbclient -L //target.com -N</code>
+                        <code class="templated"
+                            data-template="smbclient -L //{{target}} -N">smbclient -L //{{target}} -N</code>
                         <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
                                 xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
                                 fill="currentColor">
@@ -501,32 +521,8 @@
                     </div>
                     <h4>Low-level RPC interaction with rpcclient (port 445)</h4>
                     <div class="code-snippet">
-                        <code>rpcclient -U "" target.com</code>
-                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
-                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
-                                fill="currentColor">
-                                <path
-                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
-                            </svg></button>
-                    </div>
-                </div>
-
-                <!-- LDAP -->
-                <div class="box" data-category="protocols">
-                    <h2>LDAP: Anonymous Directory Enumeration</h2>
-                    <h4>Default port 389 – Query all LDAP objects via anonymous bind</h4>
-                    <div class="code-snippet">
-                        <code>ldapsearch -x -h target.com -b "dc=example,dc=com" "(objectClass=*)"</code>
-                        <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
-                                xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
-                                fill="currentColor">
-                                <path
-                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
-                            </svg></button>
-                    </div>
-                    <h4>Collect and view results in LDIF format (port 389)</h4>
-                    <div class="code-snippet">
-                        <code>ldapsearch -x -h target.com -LLL -b "dc=example,dc=com"</code>
+                        <code class="templated"
+                            data-template="rpcclient -U ´...´ {{target}}">rpcclient -U ´...´ {{target}}</code>
                         <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
                                 xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
                                 fill="currentColor">
@@ -541,7 +537,7 @@
                     <h2>RDP: Remote Desktop Connection</h2>
                     <h4>Default port 3389 – Connect to Windows RDP service</h4>
                     <div class="code-snippet">
-                        <code>xfreerdp /v:target.com</code>
+                        <code class="templated" data-template="xfreerdp /v:{{target}}">xfreerdp /v:{{target}}</code>
                         <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
                                 xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
                                 fill="currentColor">
@@ -551,7 +547,7 @@
                     </div>
                     <h4>Alternate client via rdesktop (port 3389)</h4>
                     <div class="code-snippet">
-                        <code>rdesktop target.com</code>
+                        <code class="templated" data-template="rdesktop {{target}}">rdesktop {{target}}</code>
                         <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
                                 xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
                                 fill="currentColor">
@@ -566,7 +562,8 @@
                     <h2>SNMP: Walk Public Community</h2>
                     <h4>Default port 161 – Enumerate SNMP data with default “public” community</h4>
                     <div class="code-snippet">
-                        <code>snmpwalk -v2c -c public target.com</code>
+                        <code class="templated"
+                            data-template="snmpwalk -v2c -c public {{target}}">snmpwalk -v2c -c public {{target}}</code>
                         <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
                                 xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
                                 fill="currentColor">
@@ -576,7 +573,7 @@
                     </div>
                     <h4>Check SNMP info with snmp-check script (port 161)</h4>
                     <div class="code-snippet">
-                        <code>snmp-check target.com</code>
+                        <code class="templated" data-template="snmp-check {{target}}">snmp-check {{target}}</code>
                         <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
                                 xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
                                 fill="currentColor">
@@ -591,7 +588,7 @@
                     <h2>Telnet: Unencrypted Shell</h2>
                     <h4>Default port 23 – Open a raw Telnet session</h4>
                     <div class="code-snippet">
-                        <code>telnet target.com 23</code>
+                        <code class="templated" data-template="telnet {{target}} 23">telnet {{target}} 23</code>
                         <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
                                 xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
                                 fill="currentColor">
@@ -606,7 +603,7 @@
                     <h2>NTP: Query Time Server</h2>
                     <h4>Default port 123 – Fetch current time from NTP server</h4>
                     <div class="code-snippet">
-                        <code>ntpdate -q target.com</code>
+                        <code class="templated" data-template="ntpdate -q {{target}}">ntpdate -q {{target}}</code>
                         <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
                                 xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
                                 fill="currentColor">
@@ -631,7 +628,8 @@
                     <h2>MySQL: Connect & List Databases</h2>
                     <h4>Default port 3306 – Login to MySQL as root user</h4>
                     <div class="code-snippet">
-                        <code>mysql -h target.com -u root -p</code>
+                        <code class="templated"
+                            data-template="mysql -h {{target}} -u root -p ...">mysql -h {{target}} -u root -p ...</code>
                         <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard"><svg
                                 xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
                                 fill="currentColor">
