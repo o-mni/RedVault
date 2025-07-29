@@ -106,14 +106,26 @@ document.getElementById('search-clear').addEventListener('click', () => {
 // called whenever the user types in the target field
 function updateTemplates() {
     const tgt = document.getElementById('target-input').value || '{{target}}';
+    const local = document.getElementById('local-input')?.value || '{{local}}';
+    const port = document.getElementById('port-input')?.value || '{{port}}';
     document.querySelectorAll('code.templated').forEach(codeEl => {
         const tpl = codeEl.dataset.template;
-        codeEl.textContent = tpl.replace(/{{target}}/g, tgt);
+        codeEl.textContent = tpl
+            .replace(/{{target}}/g, tgt)
+            .replace(/{{local}}/g, local)
+            .replace(/{{port}}/g, port);
     });
+
+
 }
 
 // wire it up
 const targetInput = document.getElementById('target-input');
+const localInput = document.getElementById('local-input');
+const portInput = document.getElementById('port-input');
+
+localInput.addEventListener('input', updateTemplates);
+portInput.addEventListener('input', updateTemplates);
 targetInput.addEventListener('input', updateTemplates);
 
 // initialize on page load (in case you want a default)
