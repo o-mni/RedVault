@@ -239,26 +239,37 @@ a:hover {
     box-shadow: 0 0 4px rgba(255, 255, 255, 0.3);
 }
 
-.target-container {
-    position: sticky;
-    top: 0;
+.target-wrapper {
     display: flex;
-    align-items: center;
+    /* Align containers horizontally */
+    gap: 1.5rem;
+    /* Space between each input section */
     background-color: #0d1117;
     padding: 1.5rem 1rem 0rem;
-    z-index: 1000;
-    margin: 0;
+}
+
+.target-container {
+    display: flex;
+    align-items: center;
+    /* Align label and input vertically */
+    gap: 0.5rem;
 }
 
 .target-container label {
-    margin-right: 0.5rem;
     font-size: 0.9em;
     color: #ccc;
 }
 
-#target-input {
+.target-container input {
     width: 10rem;
+    padding: 0.3rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: white;
+    color: black;
 }
+
+
 
 
 
