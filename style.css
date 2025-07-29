@@ -188,6 +188,11 @@ a:hover {
         /* include padding in that max-width */
     }
 
+    .target-wrapper {
+        display: none;
+        /* Hide the container */
+    }
+
 
     /* push content below the fixed search bar */
     .content {
